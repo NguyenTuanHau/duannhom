@@ -1,0 +1,90 @@
+<!-- Header Section Begin -->
+<header class="header">
+	<div class="header__top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="header__top__left">
+						<ul>
+							<li><i class="fa fa-envelope"></i>
+								nguyenhau08092001@gmail.com</li>
+							<li><i class="fa fa-phone"></i>Phone :0965035988 (support
+								24/7)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="header__top__right">
+						<div class="header__top__right__social">
+							<a href="#" th:if="${#request.remoteUser}">Welcome [[${#request.remoteUser}]]</a> 
+							<a th:href="@{/security/logoff}" th:if="${#request.remoteUser}">Đăng xuất</i>
+						</div>
+						<!-- <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div> -->
+						<th:block th:unless="${#request.remoteUser}">
+							<div class="header__top__right__auth">
+								<a th:href="@{/security/login/form}"><i class="fa fa-user"></i>
+									Login</a>
+							</div>
+						</th:block>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="header__logo">
+					<a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<nav class="header__menu">
+					<ul>
+						<li class="active"><a href="./index.html">Home</a></li>
+						<li><a href="./shop-grid.html">Shop</a></li>
+						<li><a href="./blog.html">Blog</a></li>
+						<li><a href="./contact.html">Liên hệ</li>
+
+							<li class="nav-item dropdown"><a
+								class="nav-link dropdown-toggle" href="#"
+								id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> Tài khoản </a>
+								<div class="dropdown-menu"
+									aria-labelledby="navbarDropdownMenuLink" style="text-align: center;">
+									<a class="" href="#">Đăng nhập</a> <a
+										class="dropdown-item" href="#">Đăng kí</a> <a
+										class="dropdown-item" href="#">Quên mật khẩu</a>
+								</div></li>
+
+	
+					</ul>
+				</nav>
+			</div>
+			<div class="col-lg-3">
+				<div class="header__cart">
+					<ul>
+						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+						<li><a th:href="@{/shopingcart}"><i
+								class="fa fa-shopping-bag"></i> <span>{{cart.count}}</span></a></li>
+					</ul>
+					<div class="header__cart__price">
+						item: <span>$150.00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="humberger__open">
+			<i class="fa fa-bars"></i>
+		</div>
+	</div>
+</header>
+<!-- Header Section End -->
