@@ -46,6 +46,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		return pdao.findAll(pageable);
 	}
+	
+	@Override
+	public List<Product> filerBetweenPrice(Double priceMin, Double priceMax) {
+		return pdao.findAllProductBetweenPrice(priceMin, priceMax);
+	}
 
 //	@Override
 //	public List<Product> findCatePage(String cid, int currentPage, String sortField, String sortDir, String keyword) {

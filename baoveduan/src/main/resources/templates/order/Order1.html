@@ -23,7 +23,7 @@
 
 		<div
 			style="font-size: 64px; font-family: 'Courier New', Courier, monospace">
-			<h2 style="text-align: center">Giá»� HÃ ng</h2>
+			<h2 style="text-align: center">Giỏ hàng</h2>
 		</div>
 
 		<div th:replace="~{/cart/Shoping-cart :: shopping_cart}"></div>
@@ -55,28 +55,28 @@
 
 						<div class="col-lg-6 col-md-6">
 							<!-- <input type="text" placeholder="Your name" />    -->
-							<div>TÃªn ngÆ°á»�i dÃ¹ng</div>
+							<div>Tài khoản khách hàng</div>
 							<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
 						</div>
 						<div class="col-lg-6 col-md-6">
 							<!-- <input type="text" placeholder="Phone" />       -->
-							<div>NgÃ y Ä‘áº·t hÃ ng</div>
+							<div>Ngày đặt hàng</div>
 							<div class="form-control">{{order.createDate |
 								date:'dd-MM-yyyy'}}</div>
 							<br>
 						</div>
 
 						<div class="col-lg-6 col-md-6">
-							<div>Sá»‘ Ä‘iá»‡n thoáº¡i</div>
+							<div>Số điện thoại </div>
 							<input ng-model="order.numberphone" type="text"
-								placeholder="Nháº­p sá»‘ Ä‘iá»‡n thoáº¡i liÃªn há»‡ cá»§a báº¡n"
+								placeholder="Nhập vào số điện thoại của bạn"
 								required autofocus />
 						</div>
 						<div class="col-lg-6 col-md-6">
 							<!--   <textarea placeholder="Nháº­p Ä‘á»‹a chá»‰ giao hÃ ng cá»§a báº¡n"></textarea> -->
-							<div>Ä�á»‹a chá»‰ giao hÃ ng</div>
+							<div>Địa chỉ giao hàng</div>
 							<textarea ng-model="order.address" class="form-control"
-								placeholder="Xin má»�i nháº­p Ä‘á»‹a chá»‰ cá»§a báº¡n táº¡i Ä‘Ã¢y"
+								placeholder="Xin nhập vào địa chỉ giao hàng"
 								required autofocus></textarea>
 						</div>
 

@@ -11,13 +11,4 @@ public class ShopingcartController {
 		return "cart/Shoping-cart";
 	}
 	
-	@RequestMapping("/profile")
-	public String profile(Model model) {
-		return "security/profile";
-    }
-	
-	@RequestMapping("/blog")
-	public String blog(Model model) {
-		return "layout/Blog";
-    }
 }

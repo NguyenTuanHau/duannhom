@@ -23,7 +23,8 @@ public interface ProductDAO extends JpaRepository<Product, Integer> {
 			+ " LIKE %?1%")
 	public Page<Product> findAll(String keyword, Pageable pageable);
 
-	
+	@Query("SELECT p FROM Product p WHERE p.price BETWEEN ?1  and ?2")
+	List<Product> findAllProductBetweenPrice(Double Min, Double Max);
 
 	
 

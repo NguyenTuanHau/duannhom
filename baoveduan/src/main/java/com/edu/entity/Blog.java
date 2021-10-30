@@ -23,7 +23,10 @@ public class Blog implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String title;
-	String contents;
+	String contents_short;
+	String contents_para1;
+	String contents_para2;
+	String contents_para3;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "createdate")
 	Date createdate = new Date();

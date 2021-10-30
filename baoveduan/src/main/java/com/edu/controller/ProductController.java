@@ -99,4 +99,31 @@ public class ProductController {
 		return "product/shop-details";
 	}
 	
+	@RequestMapping("/shop/between_price")
+	public String filerBetweenPrice(Model model,
+		@RequestParam("priceMin") Double priceMin,
+		@RequestParam("priceMax") Double priceMax) {
+		
+		int currentPage = 1;
+		String sortField = "price";
+		String sortDir = "asc";
+		String keyword = null;
+		
+		Page<Product> page = productService.findAllPage(currentPage, sortField, sortDir, keyword);
+		
+		List<Product> listProducts = productService.filerBetweenPrice(priceMin, priceMax);
+		model.addAttribute("listProducts", listProducts);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("totalPages", page.getTotalPages());
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("keyword", keyword);
+		
+		String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+		model.addAttribute("reverseSortDir", reverseSortDir);
+		
+		return "product/shop";
+	}
+	
 }

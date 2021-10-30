@@ -23,7 +23,7 @@ public interface ProductService {
 
 //	List<Product> findCatePage(String cid, int currentPage, String sortField, String sortDir, String keyword);
 
-	
+	List<Product> filerBetweenPrice(Double priceMin, Double priceMax);
 
 		
 }
