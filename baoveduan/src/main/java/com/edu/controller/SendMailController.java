@@ -60,7 +60,7 @@ public class SendMailController {
 	        MimeMessageHelper helper = new MimeMessageHelper(message); // thư viện sp định dạng email
 	        
 	        helper.setFrom(email, "Ogani");
-	        helper.setTo("khanhhnps12852@fpt.edu.vn");
+	        helper.setTo("oganishopfpt@gmail.com");
 	        
 	        String subject = cd;
 	        String content = "<p>Email:  "+ email +"</p>"+"<p>Tên khách hàng:  "+ name +"</p>" 

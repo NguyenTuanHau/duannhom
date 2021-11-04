@@ -6,74 +6,83 @@
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__left">
 						<ul>
-							<li><i class="fa fa-envelope"></i>
-								oganishopfpt@gmail.com</li>
-							<li><i class="fa fa-phone"></i>SĐT :0965035988 (Hỗ trợ
-								24/7)</li>
+							<li><i class="fa fa-envelope"></i> oganishopfpt@gmail.com</li>
+							<li><i class="fa fa-phone"></i>SĐT :0965035988 (Hỗ trợ 24/7)</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__right">
 						<div class="header__top__right__social">
-							<a href="#" th:if="${#request.remoteUser}">Xin chào
-								[[${#request.remoteUser}]]</a> <a th:href="@{/security/logoff}"
-								th:if="${#request.remoteUser}">Đăng Xuất</i>
-						</div>
-						<!-- <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div> -->
-						<th:block th:unless="${#request.remoteUser}">
-							<div class="header__top__right__auth">
-								<a th:href="@{/security/login/form}"><i class="fa fa-user"></i>
-									Đăng nhập</a>
+
+							<th:block th:unless="${#request.remoteUser}">
+								<div class="header__top__right__auth">
+									<a th:href="@{/security/login/form}"><i class="fa fa-user"></i>
+										Đăng nhập</a>
+								</div>
+							</th:block>
+							<div class="navbar-custom-menu" th:if="${#request.remoteUser}">
+								<ul class="nav navbar-nav">
+
+
+									<li class="dropdown user user-menu"><a href="#"
+										class="dropdown-toggle" data-toggle="dropdown"> <img
+											src="https://hinhnen123.com/wp-content/uploads/2021/06/avt-cute-6.jpg"
+											class="user-image"> <span class="hidden-xs">[[${#request.remoteUser}]]</span>
+									</a>
+										<ul class="dropdown-menu">
+
+											<li class="user-header"><img
+												src="https://hinhnen123.com/wp-content/uploads/2021/06/avt-cute-6.jpg"
+												class="img-circle">
+											<li class="user-footer"><center><a href="/profile/user"
+												class="btn btn-default btn-flat">Tài khoản </a></center></li>
+											<li><center><a href="/profile/changepassword"
+												class="btn btn-default btn-flat">Đổi mật khẩu</a></center></li>
+											<li><center><a th:href="@{/security/logoff}"
+												class="btn btn-default btn-flat">Đăng xuất</a></center></li>
+										</ul></li>
+								</ul>
 							</div>
-						</th:block>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="header__logo">
-					<a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="header__logo">
+						<a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+					</div>
 				</div>
-			</div>
-			<div class="col-lg-6">
-				<nav class="header__menu">
-					<ul>
-						<li class="active"><a href="/home">Trang chủ</a></li>
-						<li><a href="/shop/page">Sản phẩm</a></li>
-						<li><a href="/blog">Tin tức</a></li>
-						<li><a href="/contact">Liên hệ</li>
-						<li th:if="${#request.remoteUser}">
-							<a  href="/order/list">Lịch sử</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<div class="col-lg-3">
-				<div class="header__cart">
-					<ul>
-						<li><a th:href="@{/favoriteproduct}"><i class="fa fa-heart"></i> <span>{{favo.count}}</span></a></li>
-						<li><a th:href="@{/shopingcart}"><i
-								class="fa fa-shopping-bag"></i> <span>{{cart.count}}</span></a></li>
-					</ul>
+				<div class="col-lg-6">
+					<nav class="header__menu">
+						<ul>
+							<li class="active"><a href="/home">Trang chủ</a></li>
+							<li><a href="/shop/page">Sản phẩm</a></li>
+							<li><a href="/blog">Tin tức</a></li>
+							<li><a href="/send/mail">Liên hệ</li>
+							<li th:if="${#request.remoteUser}"><a href="/order/list">Lịch
+									sử</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3">
+					<div class="header__cart">
+						<ul>
+							<li><a th:href="@{/favoriteproduct}"><i
+									class="fa fa-heart"></i> <span>{{favo.count}}</span></a></li>
+							<li><a th:href="@{/shopingcart}"><i
+									class="fa fa-shopping-bag"></i> <span>{{cart.count}}</span></a></li>
+						</ul>
 
+					</div>
 				</div>
 			</div>
+			<div class="humberger__open">
+				<i class="fa fa-bars"></i>
+			</div>
 		</div>
-		<div class="humberger__open">
-			<i class="fa fa-bars"></i>
-		</div>
-	</div>
 </header>
 <!-- Header Section End -->

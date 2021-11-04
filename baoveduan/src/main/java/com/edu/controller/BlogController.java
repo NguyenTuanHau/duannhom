@@ -20,10 +20,10 @@ public class BlogController {
 	@Autowired
 	BlogService blogService;
 	@RequestMapping("/blog")
-	public String blog(Model model, @RequestParam("cid")Optional<String> cid)
+	public String blog(Model model)
 	{
-		List<Blog> list = blogService.findAll();
-		model.addAttribute("items",list);
+		List<Blog> blog = blogService.findAll();
+		model.addAttribute("blog",blog);
 		return "blog/Blog";
 	}
 	

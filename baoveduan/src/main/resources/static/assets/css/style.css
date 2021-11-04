@@ -37,7 +37,7 @@
 html,
 body {
     height: 100%;
-    font-family: "Cairo", sans-serif;
+    /* font-family: "Cairo", sans-serif; */
     /* -webkit-font-smoothing: antialiased; */
     font-smooth: antialiased;
 }
@@ -51,7 +51,7 @@ h6 {
     margin: 0;
     color: #111111;
     font-weight: 400;
-    font-family: "Cairo", sans-serif;
+    /* font-family: "Cairo", sans-serif; */
 }
 
 h1 {
@@ -123,7 +123,7 @@ ol {
 
 .section-title h2 {
     color: #1c1c1c;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
 }
 
@@ -435,7 +435,7 @@ ol {
 .header__menu ul li {
     list-style: none;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -3719,3 +3719,31 @@ ol {
 .bang-hoadon .chitiethoadon {
     padding-left: 30px;
 }
+
+
+.dropdown-menu.multi-column {
+    width: 400px;
+}
+ 
+.dropdown-menu.multi-column .dropdown-menu {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dropdown-menu a{
+	color: green;
+}
+
+.user-menu .user-image {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+
+

@@ -15,7 +15,7 @@ public class OrderController {
 	@Autowired
 	OrderService orderService;
 
-	@RequestMapping("/order/Order1")
+	@RequestMapping("/order/order1")
 	public String order1() {
 		return "order/Order1";
 	}

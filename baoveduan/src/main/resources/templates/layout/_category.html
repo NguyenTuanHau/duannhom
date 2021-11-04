@@ -9,7 +9,7 @@
 							<span>Danh mục</span>
 						</div>
 						<ul>
-                            <li><a th:each="c:${cates}" th:href="@{|/shop?cid=${c.categoryid}|}" >[[${c.categoryname}]]</a></li>
+                            <li><a th:each="c:${cates}" th:href="@{|/shop/page?cid=${c.categoryid}|}" >[[${c.categoryname}]]</a></li>
                         </ul>
 					</div>
 				</div>
@@ -39,7 +39,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 	<!-- Hero Section End -->

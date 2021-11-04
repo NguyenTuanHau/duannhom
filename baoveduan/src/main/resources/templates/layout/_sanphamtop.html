@@ -5,22 +5,24 @@
 		<div class="row ">
 			<div class="col-lg-12 ">
 				<div class="section-title ">
-					<h2>Sáº£n pháº©m ná»•i báº­t</h2>
+					<h2>Sản phẩm</h2>
 				</div>
 				<div class="featured__controls ">
 					<ul>
-						<li class="active " data-filter="* ">Táº¥t cáº£</li>
-						<li data-filter=".oranges ">TrÃ¡i cÃ¢y</li>
+						<li class="active " data-filter="*">Tất cả</li>	
+						<li th:each="c:${cates}" th:data-filter="'.' + ${c.categoryid} ">[[${c.categoryname}]]</li>
+						<!-- <li data-filter=".oranges ">TrÃ¡i cÃ¢y</li>
 						<li data-filter=".fresh-meat ">Thá»‹t</li>
 						<li data-filter=".vegetables ">Rau</li>
-						<li data-filter=".fastfood ">CÃ¡</li>
+						<li data-filter=".fastfood ">CÃ¡</li> -->
+						
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter ">
-			<div th:each="p:${items}"
-				class="col-md-3 col-sm-6 mix fastfood oranges">
+		<div class="row featured__filter "> <!-- col-md-3 col-sm-6 mix fastfood oranges -->
+			<div th:each="p:${items}" 
+				class="col-md-3 col-sm-6 mix" th:classappend="${p.category.categoryid}">
 				<div class="product-grid ">
 					<div class="product-image ">
 						<img class="pic-1 " th:src="@{|/assets/img/featured/${p.image}|}"
@@ -51,11 +53,12 @@
 							<a th:href="@{|/shopdetail/${p.productid}|}" th:utext="${p.name}"></a>
 						</h3>
 						<div class="price ">
-							<span>20.000 vnÄ‘</span> <br> [[${p.price}]] vnÄ‘
+							<span>20.000 VNĐ</span> <br> [[${p.price}]] VNĐ
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<center><a style="color: #7fad39; font: bold; " href="">Xem thêm >></a></center>
 	</div>
 </section>

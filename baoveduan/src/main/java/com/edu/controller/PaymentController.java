@@ -1,3 +1,4 @@
+//
 //package com.edu.controller;
 //
 //import javax.servlet.http.HttpServletRequest;
@@ -7,7 +8,6 @@
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 //
@@ -16,60 +16,56 @@
 //import com.paypal.base.rest.PayPalRESTException;
 //import com.edu.config.PaypalPaymentIntent;
 //import com.edu.config.PaypalPaymentMethod;
-//import com.edu.entity.Order;
 //import com.edu.service.PaypalService;
 //import com.edu.util.Utils;
 //
 //@Controller
 //public class PaymentController {
-//	
+//
+//	public static final String URL_PAYPAL_SUCCESS = "pay/success";
+//	public static final String URL_PAYPAL_CANCEL = "pay/cancel";
+//
+//	private Logger log = LoggerFactory.getLogger(getClass());
+//
 //	@Autowired
-//	PaypalService service;
+//	private PaypalService paypalService;
 //
-//	public static final String SUCCESS_URL = "pay/success";
-//	public static final String CANCEL_URL = "pay/cancel";
-//
-//	@GetMapping("/")
-//	public String home() {
-//		return "home";
-//	}
+//	// @GetMapping("/") // public String index(){ // return "order/Order1"; // }
 //
 //	@PostMapping("/pay")
-//	public String payment(@ModelAttribute("order") Order order) {
+//	public String pay(HttpServletRequest request, @RequestParam("price") double price) {
+//		String cancelUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_CANCEL;
+//		String successUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_SUCCESS;
 //		try {
-//			Payment payment = service.createPayment(order.getTotalprice(), order.getAddress(), order.getNumberphone(),
-//					order.getCurrency() ,"http://localhost:8080/" + CANCEL_URL,
-//					"http://localhost:8080/" + SUCCESS_URL);
-//			for(Links link:payment.getLinks()) {
-//				if(link.getRel().equals("approval_url")) {
-//					return "redirect:"+link.getHref();
+//			Payment payment = paypalService.createPayment(price, "USD", PaypalPaymentMethod.paypal,
+//					PaypalPaymentIntent.sale, "payment description", cancelUrl, successUrl);
+//			for (Links links : payment.getLinks()) {
+//				if (links.getRel().equals("approval_url")) {
+//					return "redirect:" + links.getHref();
 //				}
 //			}
-//			
 //		} catch (PayPalRESTException e) {
-//		
-//			e.printStackTrace();
+//			log.error(e.getMessage());
 //		}
-//		return "redirect:/";
+//		return "redirect:/success";
 //	}
-//	
-//	 @GetMapping(value = CANCEL_URL)
-//	    public String cancelPay() {
-//	        return "cancel";
-//	    }
 //
-//	    @GetMapping(value = SUCCESS_URL)
-//	    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
-//	        try {
-//	            Payment payment = service.executePayment(paymentId, payerId);
-//	            System.out.println(payment.toJSON());
-//	            if (payment.getState().equals("approved")) {
-//	                return "success";
-//	            }
-//	        } catch (PayPalRESTException e) {
-//	         System.out.println(e.getMessage());
-//	        }
-//	        return "redirect:/";
-//	    }
-//	
+//	@GetMapping(URL_PAYPAL_CANCEL)
+//	public String cancelPay() {
+//		return "cancel";
+//	}
+//
+//	@GetMapping(URL_PAYPAL_SUCCESS)
+//	public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
+//		try {
+//			Payment payment = paypalService.executePayment(paymentId, payerId);
+//			if (payment.getState().equals("approved")) {
+//				return "success";
+//			}
+//		} catch (PayPalRESTException e) {
+//			log.error(e.getMessage());
+//		}
+//		return "redirect:/success";
+//	}
+//
 //}

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.edu.entity.Blog;
 import com.edu.entity.Product;
+import com.edu.service.BlogService;
 import com.edu.service.CategoryService;
 import com.edu.service.ProductService;
 
@@ -25,6 +27,9 @@ public class ProductController {
 
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	BlogService blogService;
 	
 	@RequestMapping("/shop/page")
 	public String listByPage(Model model, @RequestParam("cid") Optional<String> cid) {
@@ -96,6 +101,8 @@ public class ProductController {
 	public String shopdetail(Model model, @PathVariable("productid") Integer productid) {
 		Product item = productService.findById(productid);
 		model.addAttribute("item", item);
+		List<Blog> blog = blogService.findAll();
+		model.addAttribute("blog",blog);
 		return "product/shop-details";
 	}
 	

@@ -100,4 +100,16 @@ public class AccountServiceImpl implements AccountService{
 	public Account update(Account account) {
 		return dao.save(account);
 	}
+	
+	public void profileupdate(Account account, String name, String address, String phone) {
+		account.setName(name);
+		account.setAddress(address);
+		account.setPhone(phone);
+		dao.save(account);
+	}
+
+	public void changepassword(Account account, String password) {
+		account.setPassword(password);
+		dao.save(account);
+	}
 }
