@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Administrator</title>
+
+  <link href="/assets/css/boostrapadmin/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link href="/assets/css/boostrapadmin/custom.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/boostrapadmin/material-dashboard.css?v=2.1.2">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/assets/richtext/richtext.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+</head>
+
+<body ng-app="admin-app" class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="clearfix"></div>
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img src="../images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome,</span>
+              <h2>Phu Nguyen</h2>
+            </div>
+          </div>
+          <br />
+          <!-- MENU BÊN TRÁI -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>QUẢN TRỊ VIÊN</h3>
+              <ul class="nav side-menu">
+                <li><a href="/"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><a href="#!authority"><i class="fas fa-fingerprint"></i> Phân quyền</a></li>
+                <li><a href="#!product"><i class="fas fa-box-open"></i> Sản phẩm</a></li>
+                <li><a href="#!category"><i class="fas fa-list-ul"></i> Danh mục</a></li>
+                <li><a href="#!account"><i class="fas fa-users"></i> Tài khoản</a></li>
+                <li><a href="#!order"><i class="fas fa-clipboard-list"></i> Đặt hàng</a></li>
+                <li><a href="/security/logoff"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHỖ HIỂN THỊ THÔNG TIN Ở ĐÂY -->
+      <main>
+        <div class="right_col" role="main" style="min-height: none;">
+          <div class="content">
+            <div class="container-fluid">
+              <p class="ng-view"></p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+
+    </div>
+  </div>
+
+
+    <!--SCRIPT-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/richtext/jquery.richtext.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#maindescription").richText();
+            $("#detaildescription").richText();
+        });
+    </script>
+
+  <script src="/assets/js/jsadmin/jquery.min.js"></script>
+  <script src="/assets/js/jsadmin/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/jsadmin/bootstrap-progressbar.min.js"></script>
+  <script src="/assets/js/jsadmin/custom.min.js"></script>
+  <!--CÁC JS CONTROLLER-->
+  
+  <script src="/assets/admin/admin-app.js"></script>
+  <script src="/assets/admin/product/product-ctrl.js"></script>
+  <script src="/assets/admin/authority/authority-ctrl.js"></script>
+  <script src="/assets/admin/category/category-ctrl.js"></script>
+  <script src="/assets/admin/account/account-ctrl.js"></script>
+  <script src="/assets/admin/order/order-ctrl.js"></script>
+</body>
+
+</html>

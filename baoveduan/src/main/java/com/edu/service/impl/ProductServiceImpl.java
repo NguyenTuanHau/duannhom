@@ -35,27 +35,42 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword) {
-		
+
 		Sort sort = Sort.by(sortField);
 		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
-		Pageable pageable = PageRequest.of(pageNumber -1, 9, sort);
-		
+		Pageable pageable = PageRequest.of(pageNumber - 1, 9, sort);
+
 		if (keyword != null) {
 			return pdao.findAll(keyword, pageable);
 		}
-		
+
 		return pdao.findAll(pageable);
 	}
-	
+
 	@Override
 	public List<Product> filerBetweenPrice(Double priceMin, Double priceMax) {
 		return pdao.findAllProductBetweenPrice(priceMin, priceMax);
 	}
 
+	@Override
+	public Product update(Product product) {
+		// TODO Auto-generated method stub
+		return pdao.save(product);
+	}
+
+	@Override
+	public void delete(Integer productid) {
+		pdao.deleteById(productid);
+	}
 //	@Override
 //	public List<Product> findCatePage(String cid, int currentPage, String sortField, String sortDir, String keyword) {
 //		return pdao.findCatePage(cid);
 //	}
 
+	@Override
+	public Product create(Product product) {
+		// TODO Auto-generated method stub
+		return pdao.save(product);
+	}
 
 }

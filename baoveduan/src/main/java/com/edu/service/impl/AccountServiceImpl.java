@@ -12,10 +12,6 @@ import com.edu.dao.AccountDAO;
 import com.edu.entity.Account;
 import com.edu.service.AccountService;
 
-
-
-
-
 @Service
 public class AccountServiceImpl implements AccountService{
 	@Autowired

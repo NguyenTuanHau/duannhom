@@ -1,0 +1,349 @@
+<!-- <div class="col-md-12">
+	<div class="card card-plain">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Mã tin tức</th>
+							<th>Tên chủ đề</th>
+							<th>Nội dung chính</th>
+							<th>Nội dung phụ 1</th>
+							<th>Nội dung phụ 2</th>
+							<th>Nội dung phụ 3</th>
+							<th>Hình ảnh chính</th>
+							<th>Hình ảnh phụ 1</th>
+							<th>Hình ảnh phụ 2</th>
+
+							<th>Ngày tạo</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in pager.items ">
+							 | orderBy:'-createDate'
+							<td>{{item.id}}</td>
+							<td>{{item.title}}</td>
+							<td>{{item.contents_short}}</td>
+							<td >{{item.contents_para1}}</td>
+							<td>{{item.contents_para2}}</td>
+							<td>{{item.contents_para3}}</td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image}}"
+								style="width: 100px; height: 100px"></td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image1}}"
+								style="width: 100px; height: 100px"></td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image2}}"
+								style="width: 100px; height: 100px"></td>
+							<td>{{item.createdate}}</td>
+							<td>
+								<button ng-click="edit(item)" class="btn btn-success">
+									<i class="fas fa-edit"></i>
+								</button>
+								<button ng-click="delete(item)" class="btn btn-danger">
+									<i class="fas fa-recycle"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<button ng-click="pager.first()" class="btn btn-danger">
+				<b><i class="fas fa-hand-point-up"></i></b>
+			</button>
+			<button ng-click="pager.prev()" class="btn btn-primary">
+				<b><i class="fas fa-hand-point-left"></i></b>
+			</button>
+			<button class="btn btn-success">of</button>
+			<button ng-click="pager.next()" class="btn btn-primary">
+				<b><i class="fas fa-hand-point-right"></i></b>
+			</button>
+			<button ng-click="pager.last()" class="btn btn-danger">
+				<b><i class="fas fa-hand-point-down"></i></b>
+			</button>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- 
+<div class="page-breadcrumb">
+	<div class="row">
+		<div class="col-12 d-flex no-block align-items-center">
+			<h4 class="page-title" style="color: red">Quản lý sản phẩm</h4>
+			<div class="ms-auto text-end">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Danh
+							sách sản phẩm</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<hr> -->
+<!-- <div class="panel panel-default">
+	<table class="table table-condensed">
+		<thead class="bg-success" style="font-variant: initial;">
+			<tr>
+				<th>Mã</th>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+				<th>Hình ảnh</th>
+				<th>Danh mục</th>
+				<th>Tình trạng?</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in pager.items">
+				<td>{{item.productid}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.price | number:2}}</td>
+				<td><img ng-src="{{'/assets/img/featured/'+ item.image}}"
+					style="width: 100px; height: 100px"></td>
+				<td>{{item.category.categoryname}}</td>
+				<td>{{item.status ?'Còn hàng':'Hết Hàng'}}</td>
+								<td>
+
+					<div class="btn-group btn-group-xs">
+						<button ng-click="edit(item)" class="fas fa-edit"
+							style="background-color: orange;"></button>
+						<button ng-click="delete(item)" class="fas fa-trash"
+							style="background-color: red;"></button>
+					</div>
+				</td>
+				<td>
+					<button ng-click="edit(item)" class="btn btn-success">
+						<i class="fas fa-edit"></i>
+					</button>
+					<button ng-click="delete(item)" class="btn btn-danger">
+						<i class="fas fa-recycle"></i>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="panel-footer text-center">
+		<button ng-click="pager.first()" class="btn btn-danger">
+			<b class="fas fa-angle-left"></b>
+		</button>
+		<button ng-click="pager.prev()" class="btn btn-primary">
+			<b class="fas fa-angle-down"></b>
+		</button>
+		<button class="btn btn-success">{{pager.page+1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-primary">
+			<b class="fas fa-angle-up"></b>
+		</button>
+		<button ng-click="pager.last()" class="btn btn-danger">
+			<b class="fas fa-angle-right"></b>
+		</button>
+	</div>
+	<hr> -->
+<div class="row">
+		<div id="filter-order"
+			class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-filter"></i><font style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;"> Lọc</font></font>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="control-label" for="input-order-id"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Mã tin tức</font></font></label> <input
+							type="text" name="filter_order_id" value=""
+							placeholder="ID đặt hàng" id="input-order-id"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-customer"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Tên chủ đề</font></font></label> <input
+							type="text" name="filter_customer" value=""
+							placeholder="Nhập tên chủ đề" id="input-customer" class="form-control"
+							autocomplete="off">
+						<ul class="dropdown-menu"></ul>
+					</div>
+					<!-- <div class="form-group">
+						<label class="control-label" for="input-order-status"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Nội dung</font></font></label> <select
+							name="filter_order_status_id" id="input-order-status"
+							class="form-control">
+							<option value=""></option>
+							<option value="0"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Nội dung chính</font></font></option>
+							<option value="7"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã hủy</font></font></option>
+							<option value="9"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">hủy bỏ không được thực
+										hiện</font></font></option>
+							<option value="13"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Bồi hoàn</font></font></option>
+							<option value="5"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Hoàn thành</font></font></option>
+							<option value="8"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Từ chối</font></font></option>
+							<option value="14"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Hết hạn</font></font></option>
+							<option value="10"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Thất bại</font></font></option>
+							<option value="1"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Chưa giải quyết</font></font></option>
+							<option value="15"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Xử lý</font></font></option>
+							<option value="2"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Xử lý</font></font></option>
+							<option value="11"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã hoàn lại</font></font></option>
+							<option value="12"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đảo ngược</font></font></option>
+							<option value="3"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã vận chuyển</font></font></option>
+							<option value="16"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Bỏ phiếu</font></font></option>
+						</select>
+					</div>
+ -->					<div class="form-group">
+						<label class="control-label" for="input-total"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Nội dung</font></font></label> <input
+							type="text" name="filter_total" value="" placeholder="Toàn bộ"
+							id="input-total" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-date-added"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Ngày thêm</font></font></label>
+						<div class="input-group date">
+							<input type="text" name="filter_date_added" value=""
+								placeholder="Ngày thêm" data-date-format="YYYY-MM-DD"
+								id="input-date-added" class="form-control"> <span
+								class="input-group-btn">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-calendar"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-date-modified"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Ngày sửa đổi</font></font></label>
+						<div class="input-group date">
+							<input type="text" name="filter_date_modified" value=""
+								placeholder="Ngày sửa đổi" data-date-format="YYYY-MM-DD"
+								id="input-date-modified" class="form-control"> <span
+								class="input-group-btn">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-calendar"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="form-group text-right">
+						<button type="button" id="button-filter" class="btn btn-default">
+							<i class="fa fa-filter"></i><font
+								style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;"> Lọc</font></font>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 col-md-pull-3 col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-list"></i><font style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;"> Danh sách tin tức</font></font>
+					</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="card card-plain">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-hover">
+														<thead>
+						<tr>
+							<th>Mã tin tức</th>
+							<th>Tên chủ đề</th>
+							<th>Nội dung chính</th>
+							<th>Nội dung phụ 1</th>
+							<th>Nội dung phụ 2</th>
+							<th>Nội dung phụ 3</th>
+							<th>Hình ảnh chính</th>
+							<th>Hình ảnh phụ 1</th>
+							<th>Hình ảnh phụ 2</th>
+
+							<th>Ngày tạo</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in pager.items ">
+							<!--  | orderBy:'-createDate' -->
+							<td>{{item.id}}</td>
+							<td>{{item.title}}</td>
+							<td>{{item.contents_short}}</td>
+							<td >{{item.contents_para1}}</td>
+							<td>{{item.contents_para2}}</td>
+							<td>{{item.contents_para3}}</td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image}}"
+								style="width: 100px; height: 100px"></td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image1}}"
+								style="width: 100px; height: 100px"></td>
+							<td><img ng-src="{{'/assets/img/blog/'+ item.image2}}"
+								style="width: 100px; height: 100px"></td>
+							<td>{{item.createdate}}</td>
+							<td>
+								<button ng-click="edit(item)" class="btn btn-success">
+									<i class="fas fa-edit"></i>
+								</button>
+								<button ng-click="delete(item)" class="btn btn-danger">
+									<i class="fas fa-recycle"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer text-center">
+		<button ng-click="pager.first()" class="btn btn-danger">
+			<b class="fas fa-angle-left"></b>
+		</button>
+		<button ng-click="pager.prev()" class="btn btn-primary">
+			<b class="fas fa-angle-down"></b>
+		</button>
+		<button class="btn btn-success">{{pager.page+1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-primary">
+			<b class="fas fa-angle-up"></b>
+		</button>
+		<button ng-click="pager.last()" class="btn btn-danger">
+			<b class="fas fa-angle-right"></b>
+		</button>
+	</div>
+</div>

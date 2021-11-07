@@ -7,5 +7,14 @@ import com.edu.entity.Product;
 
 public interface BlogService {
 	List<Blog> findAll();
+
 	Blog findById(Integer blogid);
+
+	Blog save(Blog blog);
+
+	Blog create(Blog blog);
+
+	Blog update(Blog blog);
+
+	void delete(Integer id);
 }

@@ -1,0 +1,313 @@
+<!-- <div class="col-md-12">
+	<div class="card card-plain">
+
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Tên người dùng</th>
+							<th>Ngày tạo</th>
+							<th>Địa chỉ</th>
+							<th>Số điện thoại</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="item in items | orderBy:'-createDate'">
+							<td>{{item.id}}</td>
+							<td>{{item.account.username}}</td>
+							<td>{{item.createDate}}</td>
+							<td>{{item.address}}</td>
+							<td>{{item.numberphone}}</td>
+							<td>
+								<button>
+									<a th:href="@{|/order/detail/${order.id}|}"
+										class="btn btn-default"> <b
+										class="glyphicon glyphicon-search">Tìm kiếm</b>
+									</a>
+								</button>
+								<button type="button" class="btn btn-primary"
+									data-bs-toggle="modal" data-bs-target="#exampleModal"
+									data-bs-whatever="@mdo">
+									<i class="fas fa-search"></i>
+								</button>
+
+
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content"
+											style="margin-left: -150px; width: 900px; height: 550px">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">New
+													message</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<form>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Mã
+															đơn hàng:</label> <input ng-model="form.productid"
+															class="form-control">
+													</div>
+													<div class="mb-3">
+														<label for="message-text" class="col-form-label">Message:</label>
+														<textarea class="form-control" id="message-text"></textarea>
+													</div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary">Send
+													message</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button ng-click="delete(item)" class="btn btn-danger">
+									<i class="fas fa-recycle"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+ -->
+	<br>	
+<div class="row">
+		<div id="filter-order"
+			class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-filter"></i><font style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;"> Lọc</font></font>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="control-label" for="input-order-id"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">ID đặt hàng</font></font></label> <input
+							type="text" name="filter_order_id" value=""
+							placeholder="ID đặt hàng" id="input-order-id"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-customer"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Khách hàng</font></font></label> <input
+							type="text" name="filter_customer" value=""
+							placeholder="Khách hàng" id="input-customer" class="form-control"
+							autocomplete="off">
+						<ul class="dropdown-menu"></ul>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-order-status"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Tình trạng đặt hàng</font></font></label> <select
+							name="filter_order_status_id" id="input-order-status"
+							class="form-control">
+							<option value=""></option>
+							<option value="0"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Thiếu đơn hàng</font></font></option>
+							<option value="7"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã hủy</font></font></option>
+							<option value="9"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">hủy bỏ không được thực
+										hiện</font></font></option>
+							<option value="13"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Bồi hoàn</font></font></option>
+							<option value="5"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Hoàn thành</font></font></option>
+							<option value="8"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Từ chối</font></font></option>
+							<option value="14"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Hết hạn</font></font></option>
+							<option value="10"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Thất bại</font></font></option>
+							<option value="1"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Chưa giải quyết</font></font></option>
+							<option value="15"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Xử lý</font></font></option>
+							<option value="2"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Xử lý</font></font></option>
+							<option value="11"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã hoàn lại</font></font></option>
+							<option value="12"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đảo ngược</font></font></option>
+							<option value="3"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Đã vận chuyển</font></font></option>
+							<option value="16"><font
+									style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">Bỏ phiếu</font></font></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-total"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Toàn bộ</font></font></label> <input
+							type="text" name="filter_total" value="" placeholder="Toàn bộ"
+							id="input-total" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-date-added"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Ngày thêm</font></font></label>
+						<div class="input-group date">
+							<input type="text" name="filter_date_added" value=""
+								placeholder="Ngày thêm" data-date-format="YYYY-MM-DD"
+								id="input-date-added" class="form-control"> <span
+								class="input-group-btn">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-calendar"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="input-date-modified"><font
+							style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;">Ngày sửa đổi</font></font></label>
+						<div class="input-group date">
+							<input type="text" name="filter_date_modified" value=""
+								placeholder="Ngày sửa đổi" data-date-format="YYYY-MM-DD"
+								id="input-date-modified" class="form-control"> <span
+								class="input-group-btn">
+								<button type="button" class="btn btn-default">
+									<i class="fa fa-calendar"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="form-group text-right">
+						<button type="button" id="button-filter" class="btn btn-default">
+							<i class="fa fa-filter"></i><font
+								style="vertical-align: inherit;"><font
+								style="vertical-align: inherit;"> Lọc</font></font>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 col-md-pull-3 col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-list"></i><font style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;"> Danh sách sản phẩm</font></font>
+					</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="card card-plain">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead>
+						<tr>
+							<th>ID</th>
+							<th>Tên người dùng</th>
+							<th>Ngày tạo</th>
+							<th>Địa chỉ</th>
+							<th>Số điện thoại</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="item in items | orderBy:'-createDate'">
+							<td>{{item.id}}</td>
+							<td>{{item.account.username}}</td>
+							<td>{{item.createDate}}</td>
+							<td>{{item.address}}</td>
+							<td>{{item.numberphone}}</td>
+							<td>
+								<!-- <button>
+									<a th:href="@{|/order/detail/${order.id}|}"
+										class="btn btn-default"> <b
+										class="glyphicon glyphicon-search">Tìm kiếm</b>
+									</a>
+								</button> -->
+								<button type="button" class="btn btn-primary"
+									data-bs-toggle="modal" data-bs-target="#exampleModal"
+									data-bs-whatever="@mdo">
+									<i class="fas fa-search"></i>
+								</button>
+
+
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content"
+											style="margin-left: -150px; width: 900px; height: 550px">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">New
+													message</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<form>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Mã
+															đơn hàng:</label> <input ng-model="form.productid"
+															class="form-control">
+													</div>
+													<div class="mb-3">
+														<label for="message-text" class="col-form-label">Message:</label>
+														<textarea class="form-control" id="message-text"></textarea>
+													</div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary">Send
+													message</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button ng-click="delete(item)" class="btn btn-danger">
+									<i class="fas fa-recycle"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer text-center">
+		<button ng-click="pager.first()" class="btn btn-danger">
+			<b class="fas fa-angle-left"></b>
+		</button>
+		<button ng-click="pager.prev()" class="btn btn-primary">
+			<b class="fas fa-angle-down"></b>
+		</button>
+		<button class="btn btn-success">{{pager.page+1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-primary">
+			<b class="fas fa-angle-up"></b>
+		</button>
+		<button ng-click="pager.last()" class="btn btn-danger">
+			<b class="fas fa-angle-right"></b>
+		</button>
+	</div>
+</div>

@@ -52,5 +52,14 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return dao.findByUsername(username);
 	}
+	@Override
+	public List<Order> findAll() {
+		// TODO Auto-generated method stub
+		return dao.findAll();
+	}
 
+	@Override
+	public void delete(Long id) {
+		dao.deleteById(id);
+	}
 }
