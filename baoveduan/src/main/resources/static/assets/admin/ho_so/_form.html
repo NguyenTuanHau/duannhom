@@ -1,0 +1,76 @@
+<div class="card">
+
+	<div class="card-body">
+		<form>
+			<!--CHỖ NÀY ĐỂ HÌNH-->
+			<div class="col-md-4">
+
+				<label for="image"> <img src="" style="max-width: 100%;">
+				</label>
+				<div class="card-body">
+					<input type="file" class="btn" id="image">
+				</div>
+
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<label class="bmd-label-floating">Tên sản phẩm</label> <input
+								ng-model="form.name" class="form-control">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label class="bmd-label-floating">Đơn giá</label> <input
+								ng-model="form.price" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="bmd-label-floating">Danh mục</label> <select
+								ng-model="form.category.id" class="form-control ">
+								<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="bmd-label-floating">Ngày tạo</label> <input
+								ng-model="form.createDate" type="date" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label class="bmd-label-floating">Tình trạng?</label>
+						<div class="form-control">
+							<input ng-model="form.available" type="radio" name="available"
+								ng-value="true">Có <br> <input
+								ng-model="form.available" type="radio" name="available"
+								ng-value="false">Không
+						</div>
+					</div>
+				</div>
+			</div>
+			<button ng-click="create()" class="btn btn-primary pull-right">
+				<b><i class="fas fa-plus-circle"></i> Thêm</b>
+			</button>
+			<button ng-click="update()" class="btn btn-success pull-right">
+				<b><i class="fas fa-edit"></i> Cập nhật</b>
+			</button>
+			<button ng-click="delete(form)" class="btn btn-danger pull-right">
+				<b><i class="fas fa-recycle"></i> Xóa</b>
+			</button>
+			<button ng-click="reset()" class="btn btn-info pull-right">
+				<b><i class="fas fa-redo-alt"></i> Làm mới</b>
+			</button>
+
+			<div class="clearfix"></div>
+
+		</form>
+	</div>
+</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-header card-header-primary">
+    <h4 class="card-title">CHá»ˆNH Sá»¬A TÃ€I KHOáº¢N</h4>
+  </div>
+  <div class="card-body">
+    <form>
+      <!--CHá»– NÃ€Y Ä�á»‚ HÃŒNH-->
+      <div class="col-md-4">
+
+        <label for="image">
+          <img ng-src="{{'/assets/images/account'+ form.image}}" style="max-width: 100%;">
+        </label>
+        <div class="card-body">
+          <input type="file" class="btn" id="image" onchange="angular.element(this).scope().imageChanged(this.files)">
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group">
+              <label class="bmd-label-floating">TÃªn Ä‘Äƒng nháº­p</label>
+              <input ng-model="form.username" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="bmd-label-floating">Máº­t kháº©u</label>
+              <input ng-model="form.password" type="password" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Há»� vÃ  tÃªn</label>
+              <input ng-model="form.fullname" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Email</label>
+              <input type="email" ng-model="form.email" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Quyá»�n hÃ nh</label>
+              <input ng-model="form.authorities.id" class="form-control" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button ng-click="create()" class="btn btn-primary pull-right">
+        <b><i class="fas fa-plus-circle"></i> ThÃªm</b>
+      </button>
+      <button ng-click="update()" class="btn btn-success pull-right">
+        <b><i class="fas fa-edit"></i> Cáº­p nháº­t</b>
+      </button>
+      <button ng-click="delete(form)" class="btn btn-danger pull-right">
+        <b><i class="fas fa-recycle"></i> XÃ³a</b>
+      </button>
+      <button ng-click="reset()" class="btn btn-info pull-right">
+        <b><i class="fas fa-redo-alt"></i> LÃ m má»›i</b>
+      </button>
+
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+</div>
+</div>

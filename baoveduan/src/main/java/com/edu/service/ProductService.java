@@ -25,5 +25,10 @@ public interface ProductService {
 
 	List<Product> filerBetweenPrice(Double priceMin, Double priceMax);
 
-		
+	Product create(Product product);
+
+	Product update(Product product);
+
+	void delete(Integer productid);
+	
 }

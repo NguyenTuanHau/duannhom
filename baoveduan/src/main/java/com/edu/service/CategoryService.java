@@ -6,4 +6,12 @@ import com.edu.entity.Category;
 
 public interface CategoryService {
 	List<Category> findAll();
+	
+	Category save(Category category);
+
+	Category update(Category category);
+
+	void delete(String id);
+
+	Category findById(String categoryid);
 }
