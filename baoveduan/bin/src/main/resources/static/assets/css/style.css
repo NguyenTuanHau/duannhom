@@ -37,7 +37,7 @@
 html,
 body {
     height: 100%;
-    font-family: "Cairo", sans-serif;
+    /* font-family: "Cairo", sans-serif; */
     /* -webkit-font-smoothing: antialiased; */
     font-smooth: antialiased;
 }
@@ -51,7 +51,7 @@ h6 {
     margin: 0;
     color: #111111;
     font-weight: 400;
-    font-family: "Cairo", sans-serif;
+    /* font-family: "Cairo", sans-serif; */
 }
 
 h1 {
@@ -123,7 +123,7 @@ ol {
 
 .section-title h2 {
     color: #1c1c1c;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
 }
 
@@ -435,7 +435,7 @@ ol {
 .header__menu ul li {
     list-style: none;
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -512,7 +512,7 @@ ol {
 
 .header__cart ul {
     display: inline-block;
-    margin-right: 25px;
+    margin-right: 20px;
 }
 
 .header__cart ul li {
@@ -614,6 +614,10 @@ ol {
 }
 
 .fa-shopping-cart{
+	color: white; 
+}
+
+.fa-heart{
 	color: white; 
 }
 
@@ -1484,7 +1488,7 @@ ol {
     color: #1c1c1c;
 }
 
-.filter__sort .nice-select:after {
+/*.filter__sort .nice-select:after {
     border-bottom: 1.5px solid #1c1c1c;
     border-right: 1.5px solid #1c1c1c;
     height: 8px;
@@ -1506,7 +1510,7 @@ ol {
     border-radius: 0;
     margin-top: 0;
     top: 15px;
-}
+}*/
 
 .filter__sort .nice-select .option {
     line-height: 30px;
@@ -1671,12 +1675,34 @@ ol {
     transition: all, 0.3s;
 }
 
+.product__pagination span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #b2b2b2;
+    font-size: 14px;
+    color: #7fad39;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+   
+	margin-right: 16px;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    
+}
+
 .product__pagination a:hover,
 .blog__pagination a:hover {
     background: #7fad39;
     border-color: #7fad39;
     color: #ffffff;
 }
+
+
 
 .product__pagination a:last-child,
 .blog__pagination a:last-child {
@@ -3693,3 +3719,31 @@ ol {
 .bang-hoadon .chitiethoadon {
     padding-left: 30px;
 }
+
+
+.dropdown-menu.multi-column {
+    width: 400px;
+}
+ 
+.dropdown-menu.multi-column .dropdown-menu {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dropdown-menu a{
+	color: green;
+}
+
+.user-menu .user-image {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+
+

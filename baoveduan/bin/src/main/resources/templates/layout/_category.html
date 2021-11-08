@@ -6,23 +6,25 @@
 					<div class="hero__categories">
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i>
-							<span>All departments</span>
+							<span>Danh mục</span>
 						</div>
 						<ul>
-                            <li><a th:each="c:${cates}" th:href="@{|/shop?cid=${c.categoryid}|}" >[[${c.categoryname}]]</a></li>
+                            <li><a th:each="c:${cates}" th:href="@{|/shop/page?cid=${c.categoryid}|}" >[[${c.categoryname}]]</a></li>
                         </ul>
 					</div>
 				</div>
 				<div class="col-lg-9 ">
 					<div class="hero__search ">
 						<div class="hero__search__form ">
-							<form action="# ">
+							<form th:action="@{/shop/page/1}">
 								<!-- <div class="hero__search__categories ">
                                     All Categories
                                     <span class="arrow_carrot-down "></span>
                                 </div> -->
-								<input type="text " placeholder="What do yo u need? ">
-								<button type="submit " class="site-btn ">SEARCH</button>
+                                <input type="hidden" name="sortField" th:value="${sortField}" />
+                                <input type="hidden" name="sortDir" th:value="${sortDir}" />
+								<input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm trên Ogani " required />
+								<button type="submit " class="site-btn ">Tìm kiếm</button>
 							</form>
 						</div>
 						<!-- <div class="hero__search__phone ">
@@ -37,7 +39,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 	<!-- Hero Section End -->

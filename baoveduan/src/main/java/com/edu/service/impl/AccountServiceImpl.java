@@ -57,12 +57,10 @@ public class AccountServiceImpl implements AccountService{
     }
 	
 	public void updatePassword(Account account, String newPassword) {		
-//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//        String encodedPassword = passwordEncoder.encode(newPassword);                mã hóa password
-//        account.setPassword(encodedPassword);
-		
-		account.setPassword(newPassword);
-
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword);                //mã hóa password
+        account.setPassword(encodedPassword);	
+//		account.setPassword(newPassword);											//ko mã hóa
         account.setResetToken(null);
         dao.save(account);
     }

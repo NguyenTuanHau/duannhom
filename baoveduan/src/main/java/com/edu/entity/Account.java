@@ -14,6 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.security.core.userdetails.User;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
