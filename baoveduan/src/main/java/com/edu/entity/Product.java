@@ -14,10 +14,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Products")
 public class Product implements Serializable {
@@ -46,4 +50,12 @@ public class Product implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "product")
 	List<OrderDetail> orderDetails;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "product")
+	List<Rate> rate;
+	
+	public Product(int productid) {
+		this.productid = productid;
+	}
 }

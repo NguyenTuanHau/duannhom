@@ -24,7 +24,6 @@
 							<div class="navbar-custom-menu" th:if="${#request.remoteUser}">
 								<ul class="nav navbar-nav">
 
-
 									<li class="dropdown user user-menu"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"> <img
 											src="https://hinhnen123.com/wp-content/uploads/2021/06/avt-cute-6.jpg"
@@ -59,11 +58,11 @@
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li class="active"><a href="/home">Trang chủ</a></li>
-							<li><a href="/shop/page">Sản phẩm</a></li>
-							<li><a href="/blog">Tin tức</a></li>
-							<li><a href="/send/mail">Liên hệ</li>
-							<li th:if="${#request.remoteUser}"><a href="/order/list">Lịch
+							<li th:class="${#request.requestURI.contains('home')} ? 'active' : '' "><a th:href="@{/home}">Trang chủ</a></li>
+							<li th:class="${#request.requestURI.contains('shop/page')} ? 'active' : '' "><a th:href="@{/shop/page}">Sản phẩm</a></li>
+							<li th:class="${#request.requestURI.contains('blog')} ? 'active' : '' "><a th:href="@{/blog}">Tin tức</a></li>
+							<li th:class="${#request.requestURI.contains('send/mail')} ? 'active' : '' "><a th:href="@{/send/mail}">Liên hệ</li>
+							<li th:class="${#request.requestURI.contains('order/list')} ? 'active' : '' " th:if="${#request.remoteUser}"><a th:href="@{/order/list}">Lịch
 									sử</a></li>
 						</ul>
 					</nav>

@@ -16,14 +16,19 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @SuppressWarnings("serial")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "Accounts")
 public class Account implements Serializable {
+
 	@Id
 	String username;
 	String password;
@@ -43,9 +48,17 @@ public class Account implements Serializable {
 	List<Order> orders;
 	
 	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Rate> rate;
+		
+	@JsonIgnore
 	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
 	List<Authority> authorities;
 	
 	@Column(name = "reset_token")
     private String resetToken;
+	
+	public Account(String username) {
+		this.username = username;
+	}
 }

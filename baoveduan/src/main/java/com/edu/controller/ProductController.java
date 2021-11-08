@@ -3,6 +3,8 @@ package com.edu.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -11,14 +13,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.edu.entity.Account;
 import com.edu.entity.Blog;
 import com.edu.entity.Product;
+import com.edu.entity.Rate;
 import com.edu.service.BlogService;
 import com.edu.service.CategoryService;
 import com.edu.service.ProductService;
+import com.edu.service.RateService;
 
 @Controller
 public class ProductController {
@@ -30,6 +36,9 @@ public class ProductController {
 	
 	@Autowired
 	BlogService blogService;
+	
+	@Autowired
+	RateService rateService;
 	
 	@RequestMapping("/shop/page")
 	public String listByPage(Model model, @RequestParam("cid") Optional<String> cid) {
@@ -131,6 +140,21 @@ public class ProductController {
 		model.addAttribute("reverseSortDir", reverseSortDir);
 		
 		return "product/shop";
+	}
+	
+////HÀM ĐÁNH GIÁ
+	@PostMapping("/rating_product")
+	public String saveComment(Model model, Rate rate,
+			HttpServletRequest request) {
+		
+		rate.setAccount(new Account(request.getRemoteUser()));
+		rate.setProduct(new Product(Integer.parseInt(request.getParameter("layId"))));
+		rate.setComment(request.getParameter("comment").trim());
+		rate.setStar(Double.parseDouble(request.getParameter("star")));
+		rateService.save(rate);
+		
+//		return "layout/homegiua";
+		return "redirect:/home";
 	}
 	
 }
