@@ -30,7 +30,6 @@ public class Product implements Serializable {
 	Integer productid;
 	String name	;
 	Double price;
-	Integer promotion;
 	String unit;
 	String image;
 	String image1;
@@ -39,8 +38,6 @@ public class Product implements Serializable {
 	String des_short;
 	String des_long;
 	String information;
-	Integer views;
-	Integer quantity;
 	boolean status;
 	
 	@ManyToOne

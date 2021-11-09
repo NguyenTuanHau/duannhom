@@ -1,4 +1,3 @@
-
 <!-- <div class="page-breadcrumb">
 	<div class="row">
 		<div class="col-12 d-flex no-block align-items-center">
@@ -56,10 +55,42 @@
 							onchange="angular.element(this).scope().imageChanged(this.files)">
 					</div>
 					<div class="form-group col-sm-6">
+						<div>Hình ảnh 1</div>
+						<input type="file" class="form-control" id="image"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Hình ảnh 2</div>
+						<input type="file" class="form-control" id="image"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Hình ảnh 3</div>
+						<input type="file" class="form-control" id="image"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+					
+					<div class="form-group col-sm-6">
 						<div>Danh mục</div>
 						<select ng-model="form.category.categoryid" class="form-control">
 							<option ng-repeat="c in cates" ng-value="c.categoryid">{{c.categoryname}}</option>
 						</select>
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Đơn vị tính :</div>
+						<input ng-model="form.unit" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>des_short :</div>
+						<input ng-model="form.des_short" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>des_long :</div>
+						<input ng-model="form.des_long" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>information :</div>
+						<input ng-model="form.information" class="form-control">
 					</div>
 				</div>
 				<div class="row">

@@ -61,8 +61,8 @@ app.controller("product-ctrl", function ($scope, $http) {
     }
     // Xóa sp
     $scope.delete = function (item) {
-        $http.delete(`/rest/products/${item.id}`).then(resp => {
-            var index = $scope.items.findIndex(p => p.productid == item.id);
+        $http.delete(`/rest/products/${item.productid}`).then(resp => {
+            var index = $scope.items.findIndex(p => p.productid == item.productid);
             $scope.items.splice(index, 1);
             $scope.reset();
             alert("Xóa sản phẩm thành công!");

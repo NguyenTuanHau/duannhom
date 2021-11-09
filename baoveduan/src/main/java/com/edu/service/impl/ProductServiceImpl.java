@@ -54,7 +54,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product update(Product product) {
-		// TODO Auto-generated method stub
 		return pdao.save(product);
 	}
 
@@ -69,7 +68,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product create(Product product) {
-		// TODO Auto-generated method stub
 		return pdao.save(product);
 	}
 

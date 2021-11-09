@@ -24,9 +24,9 @@ public class ProductRestController {
 	@Autowired
 	ProductService productService;
 
-	@GetMapping("{id}")
-	public Product getOne(@PathVariable("id") Integer id) {
-		return productService.findById(id);
+	@GetMapping("{productid}")
+	public Product getOne(@PathVariable("productid") Integer productid) {
+		return productService.findById(productid);
 	}
 
 	@GetMapping()
@@ -39,13 +39,13 @@ public class ProductRestController {
 		return productService.create(product);
 	}
 
-	@PutMapping("{id}")
-	public Product update(@PathVariable("id") Integer id, @RequestBody Product product) {
+	@PutMapping("{productid}")
+	public Product update(@PathVariable("productid") Integer productid, @RequestBody Product product) {
 		return productService.update(product);
 	}
 
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") Integer productid) {
+	@DeleteMapping("{productid}")
+	public void delete(@PathVariable("productid") Integer productid) {
 		productService.delete(productid);
 	}
 }

@@ -1,50 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
 
 <body>
-    <main>
+	<main>
 		<th:block th:replace="/layout/_header.html"></th:block>
-        <th:block th:replace="/layout/_category.html"></th:block>
+		<th:block th:replace="/layout/_category.html"></th:block>
 
-        <section th:object="${item}" class="product-details spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product__details__pic">
-                            <div class="product__details__pic__item">
-                                <img class="product__details__pic__item--large" th:src="@{|/assets/img/featured/*{image}|}" alt="">
-                            </div>
-                            <div class="product__details__pic__slider owl-carousel">
-                                <img th:data-imgbigurl="@{|/assets/img/featured/*{image}|}" th:src="@{|/assets/img/featured/*{image}|}" alt=""> <img th:data-imgbigurl="@{|/assets/img/featured/*{image1}|}" th:src="@{|/assets/img/featured/*{image1}|}" alt="">                                <img th:data-imgbigurl="@{|/assets/img/featured/*{image2}|}" th:src="@{|/assets/img/featured/*{image2}|}" alt=""> <img th:data-imgbigurl="@{|/assets/img/featured/*{image3}|}" th:src="@{|/assets/img/featured/*{image3}|}"
-                                    alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product__details__text">
-                            <h3>[[*{name}]]</h3>
-                            <b>[[*{category.categoryname}]]</b>
-                            <div class="product__details__rating">
-                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
-                            </div>
-                            <div class="product__details__price">[[*{price}]] VNÄ�</div>
-                            <p>[[*{des_short}]]</p>
-                            <div class="product__details__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="primary-btn" th:attr="ng-click=@{|cart.add(${item.productid})|}">ADD TO
-                                CARD</a>
-                            <a href="#" class="heart-icon" th:attr="ng-click=@{|favo.add(${item.productid})|}"><span
-                                    class="icon_heart_alt"></span></a>
-                            <ul>
-                                <li><b>TÃ¬nh tráº¡ng</b> <span>[[*{status}]]</span></li>
-                                <!--<li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>-->
-                                <li><b>CÃ¢n náº·ng</b> <span>1 [[*{unit}]]</span></li>
-                                <!--<li><b>Share on</b>
+		<section th:object="${item}" class="product-details spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="product__details__pic">
+							<div class="product__details__pic__item">
+								<img class="product__details__pic__item--large"
+									th:src="@{|/assets/img/featured/*{image}|}" alt="">
+							</div>
+							<div class="product__details__pic__slider owl-carousel">
+								<img th:data-imgbigurl="@{|/assets/img/featured/*{image}|}"
+									th:src="@{|/assets/img/featured/*{image}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/img/featured/*{image1}|}"
+									th:src="@{|/assets/img/featured/*{image1}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/img/featured/*{image2}|}"
+									th:src="@{|/assets/img/featured/*{image2}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/img/featured/*{image3}|}"
+									th:src="@{|/assets/img/featured/*{image3}|}" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="product__details__text">
+							<h3>[[*{name}]]</h3>
+							<b>[[*{category.categoryname}]]</b>
+							<div class="product__details__rating">
+								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
+							</div>
+							<div class="product__details__price">[[*{price}]] VNÄ�</div>
+							<p>[[*{des_short}]]</p>
+							<div class="product__details__quantity">
+								<div class="quantity">
+									<div class="pro-qty">
+										<input type="text" value="1">
+									</div>
+								</div>
+							</div>
+							<a href="#" class="primary-btn"
+								th:attr="ng-click=@{|cart.add(${item.productid})|}">ADD TO
+								CARD</a> <a href="#" class="heart-icon"
+								th:attr="ng-click=@{|favo.add(${item.productid})|}"><span
+								class="icon_heart_alt"></span></a>
+							<ul>
+								<li><b>TÃ¬nh tráº¡ng</b> <span>[[*{status}]]</span></li>
+								<!--<li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>-->
+								<li><b>CÃ¢n náº·ng</b> <span>1 [[*{unit}]]</span></li>
+								<!--<li><b>Share on</b>
 									<div class="share">
 										<a href="#"><i class="fa fa-facebook"></i></a>
 										<a href="#"><i class="fa fa-twitter"></i></a>
@@ -52,207 +63,225 @@
 										<a href="#"><i class="fa fa-pinterest"></i></a>
 									</div>
 								</li>-->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="product__details__tab">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">MiÃªu táº£</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">ThÃ´ng tin</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Ä�Ã¡nh giÃ¡<span>(1)</span></a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                    <div class="product__details__tab__desc">
-                                        <h4>[[*{name}]]</h4>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="product__details__tab">
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item"><a class="nav-link active"
+									data-toggle="tab" href="#tabs-1" role="tab"
+									aria-selected="true">MiÃªu táº£</a></li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									href="#tabs-2" role="tab" aria-selected="false">ThÃ´ng tin</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									href="#tabs-3" role="tab" aria-selected="false">Ä�Ã¡nh giÃ¡<span>(1)</span></a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tabs-1" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h4>[[*{name}]]</h4>
 
 
-                                        <p>[[*{des_long}]]</p>
+										<p>[[*{des_long}]]</p>
 
 
 
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                    <div class="product__details__tab__desc">
-                                        <h6>[[*{name}]]</h6>
-                                        <p>[[*{information}]]</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                    <div class="product__details__tab__desc">
-                                        <h6>[[*{name}]]</h6>
-                                        <div class="row" th:each="rate:*{rate}" th:object="${rate}">
-                                        	<div class="col-md-2">
-                                        		<img class="rounded-circle img-fluid" src="/assets/img/logo.png">
-                                        	</div>
-                                        	<div class="col-md-10">
-                                        		<p>[[*{comment}]]</p>
-                                        	</div>
-                                        </div>
-                                        
-                                        <a th:data-id="*{productid}" onclick="hienHopThoaiDanhGia(this.getAttribute('data-id'))">
-                                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-                                                Bình luận
-                                            </button>
-                                        </a>
+									</div>
+								</div>
+								<div class="tab-pane" id="tabs-2" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h6>[[*{name}]]</h6>
+										<p>[[*{information}]]</p>
+									</div>
+								</div>
+								<div class="tab-pane" id="tabs-3" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h6>[[*{name}]]</h6>
+										<div class="row" th:each="rate:*{rate}" th:object="${rate}">
+											<div class="col-md-2">
+												<img class="rounded-circle img-fluid"
+													src="/assets/img/logo.png">
+											</div>
+											<div class="col-md-10">
+												<p>[[*{comment}]]</p>
+											</div>
+										</div>
 
-                                        <!--BÌNH LUẬN-->
-                                        <div class="modal fade" id="hopThoaiRate" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <form th:action="@{/rating_product}" method="post">
-                                                    <div class="modal-content">
-                                                        <input type="hidden" name="layId" id="layId">
-                                                        
-                                                        <div class="modal-header ">
-                                                        	
-                                                            <!--ĐỔI THÀNH GIAO DIỆN SAO-->
-                                                            <input type="radio" name="star" value="1">
-                                                            <input type="radio" name="star" value="2">
-                                                            <input type="radio" name="star" value="3">
-                                                        </div>
-                                                        
-                                                        <div class="modal-body">
-                                                            <textarea id="comment" name="comment" cols="50" rows="5" style="resize: none; width: 100%;height: 100%; margin-top: 100px "></textarea>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+										<a th:data-id="*{productid}"
+											onclick="hienHopThoaiDanhGia(this.getAttribute('data-id'))">
+											<button type="button" class="btn btn-primary btn-lg"
+												data-toggle="modal" data-target="#exampleModal">
+												Bình luận</button>
+										</a>
 
-                                                            <button id="xacNhan" type="submit" class="btn btn-primary">Lưu đánh giá</button>
+										<!--BÌNH LUẬN-->
+										<div class="modal fade" id="hopThoaiRate" tabindex="-1"
+											role="dialog" aria-labelledby="modelTitleId"
+											aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered"
+												role="document">
+												<form th:action="@{/rating_product}" method="post">
+													<div class="modal-content">
+														<input type="hidden" name="layId" id="layId">
 
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Product Details Section End -->
+														<div class="modal-header ">
 
-        <!-- Related Product Section Begin -->
-        <section class="related-product ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-lg-12 ">
-                        <div class="section-title related__product__title ">
-                            <h2>Sản phẩm nỗi bật</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-lg-4 col-md-6 col-sm-6 ">
-                        <div class="product-grid ">
-                            <div class="product-image ">
-                                <img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
-                                <ul class="social ">
-                                    <li><a href=" " data-tip="Quick View "><i class="fa fa-search "></i></a></li>
-                                    <li><a href=" " data-tip="Add to Wishlist "><i class="fa fa-shopping-bag "></i></a>
-                                    </li>
-                                    <li><a href=" " data-tip="Add to Cart "><i class="fa fa-shopping-cart "></i></a>
-                                    </li>
-                                </ul>
-                                <span class="product-new-label ">Sale</span> <span class="product-discount-label ">20%</span>
-                            </div>
-                            <ul class="rating ">
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star disable "></li>
-                            </ul>
-                            <div class="product-content ">
-                                <h3 class="title ">
-                                    <a href="# ">Women's Blouse</a>
-                                </h3>
-                                <div class="price ">
-                                    $16.00 <span>$20.00</span>
-                                </div>
-                                <a class="add-to-cart " href=" ">+ Add To Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 ">
-                        <div class="product-grid ">
-                            <div class="product-image ">
-                                <img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
-                                <ul class="social ">
-                                    <li><a href=" " data-tip="Quick View "><i class="fa fa-search "></i></a></li>
-                                    <li><a href=" " data-tip="Add to Wishlist "><i class="fa fa-shopping-bag "></i></a>
-                                    </li>
-                                    <li><a href=" " data-tip="Add to Cart "><i class="fa fa-shopping-cart "></i></a>
-                                    </li>
-                                </ul>
-                                <span class="product-new-label ">Sale</span> <span class="product-discount-label ">20%</span>
-                            </div>
-                            <ul class="rating ">
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star disable "></li>
-                            </ul>
-                            <div class="product-content ">
-                                <h3 class="title ">
-                                    <a href="# ">Women's Blouse</a>
-                                </h3>
-                                <div class="price ">
-                                    $16.00 <span>$20.00</span>
-                                </div>
-                                <a class="add-to-cart " href=" ">+ Add To Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 ">
-                        <div class="product-grid ">
-                            <div class="product-image ">
-                                <img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
-                                <ul class="social ">
-                                    <li><a href=" " data-tip="Quick View "><i class="fa fa-search "></i></a></li>
-                                    <li><a href=" " data-tip="Add to Wishlist "><i class="fa fa-shopping-bag "></i></a>
-                                    </li>
-                                    <li><a href=" " data-tip="Add to Cart "><i class="fa fa-shopping-cart "></i></a>
-                                    </li>
-                                </ul>
-                                <span class="product-new-label ">Sale</span> <span class="product-discount-label ">20%</span>
-                            </div>
-                            <ul class="rating ">
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star "></li>
-                                <li class="fa fa-star disable "></li>
-                            </ul>
-                            <div class="product-content ">
-                                <h3 class="title ">
-                                    <a href="# ">Women's Blouse</a>
-                                </h3>
-                                <div class="price ">
-                                    $16.00 <span>$20.00</span>
-                                </div>
-                                <a class="add-to-cart " href=" ">+ Add To Cart</a>
-                            </div>
-                        </div>
-                    </div>
+															<!--ĐỔI THÀNH GIAO DIỆN SAO-->
+															<input type="radio" name="star" value="1"> <input
+																type="radio" name="star" value="2"> <input
+																type="radio" name="star" value="3">
+														</div>
 
-                </div>
-            </div>
-        </section>
+														<div class="modal-body">
+															<textarea id="comment" name="comment" cols="50" rows="5"
+																style="resize: none; width: 100%; height: 100%; margin-top: 100px"></textarea>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Hủy</button>
 
-        <!-- Related Product Section End -->
-        <!-- Blog section begin -->
-        <th:block th:replace="/layout/_blog.html "></th:block>
+															<button id="xacNhan" type="submit"
+																class="btn btn-primary">Lưu đánh giá</button>
 
-        <!-- Js Plugins -->
-        <!-- <script>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Product Details Section End -->
+
+		<!-- Related Product Section Begin -->
+		<section class="related-product ">
+			<div class="container ">
+				<div class="row ">
+					<div class="col-lg-12 ">
+						<div class="section-title related__product__title ">
+							<h2>Sản phẩm nỗi bật</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-lg-4 col-md-6 col-sm-6 ">
+						<div class="product-grid ">
+							<div class="product-image ">
+								<img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
+								<ul class="social ">
+									<li><a href=" " data-tip="Quick View "><i
+											class="fa fa-search "></i></a></li>
+									<li><a href=" " data-tip="Add to Wishlist "><i
+											class="fa fa-shopping-bag "></i></a></li>
+									<li><a href=" " data-tip="Add to Cart "><i
+											class="fa fa-shopping-cart "></i></a></li>
+								</ul>
+								<span class="product-new-label ">Sale</span> <span
+									class="product-discount-label ">20%</span>
+							</div>
+							<ul class="rating ">
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star disable "></li>
+							</ul>
+							<div class="product-content ">
+								<h3 class="title ">
+									<a href="# ">Women's Blouse</a>
+								</h3>
+								<div class="price ">
+									$16.00 <span>$20.00</span>
+								</div>
+								<a class="add-to-cart " href=" ">+ Add To Cart</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 ">
+						<div class="product-grid ">
+							<div class="product-image ">
+								<img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
+								<ul class="social ">
+									<li><a href=" " data-tip="Quick View "><i
+											class="fa fa-search "></i></a></li>
+									<li><a href=" " data-tip="Add to Wishlist "><i
+											class="fa fa-shopping-bag "></i></a></li>
+									<li><a href=" " data-tip="Add to Cart "><i
+											class="fa fa-shopping-cart "></i></a></li>
+								</ul>
+								<span class="product-new-label ">Sale</span> <span
+									class="product-discount-label ">20%</span>
+							</div>
+							<ul class="rating ">
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star disable "></li>
+							</ul>
+							<div class="product-content ">
+								<h3 class="title ">
+									<a href="# ">Women's Blouse</a>
+								</h3>
+								<div class="price ">
+									$16.00 <span>$20.00</span>
+								</div>
+								<a class="add-to-cart " href=" ">+ Add To Cart</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 ">
+						<div class="product-grid ">
+							<div class="product-image ">
+								<img class="pic-1 " src="/assets/img/featured/feature-1.jpg ">
+								<ul class="social ">
+									<li><a href=" " data-tip="Quick View "><i
+											class="fa fa-search "></i></a></li>
+									<li><a href=" " data-tip="Add to Wishlist "><i
+											class="fa fa-shopping-bag "></i></a></li>
+									<li><a href=" " data-tip="Add to Cart "><i
+											class="fa fa-shopping-cart "></i></a></li>
+								</ul>
+								<span class="product-new-label ">Sale</span> <span
+									class="product-discount-label ">20%</span>
+							</div>
+							<ul class="rating ">
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star "></li>
+								<li class="fa fa-star disable "></li>
+							</ul>
+							<div class="product-content ">
+								<h3 class="title ">
+									<a href="# ">Women's Blouse</a>
+								</h3>
+								<div class="price ">
+									$16.00 <span>$20.00</span>
+								</div>
+								<a class="add-to-cart " href=" ">+ Add To Cart</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Related Product Section End -->
+		<!-- Blog section begin -->
+		<th:block th:replace="/layout/_blog.html "></th:block>
+
+		<!-- Js Plugins -->
+		<!-- <script>
             (function($) {
                 showSwal = function(type) {
                     'use strict';
@@ -276,7 +305,7 @@
 
             })(jQuery);
         </script> -->
-    </main>
+	</main>
 </body>
 
 
