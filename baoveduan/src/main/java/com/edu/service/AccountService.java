@@ -17,8 +17,6 @@ public interface AccountService {
 	
 	public void save(Account entity);
 	
-	
-	
 	Account findByResetToken(String resetToken);
 
 	Account getByResetToken(String token);

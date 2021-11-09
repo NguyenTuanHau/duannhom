@@ -26,12 +26,10 @@ public class AccountServiceImpl implements AccountService{
 
 	
 	public List<Account> getAdministrators() {
-		// TODO Auto-generated method stub
 		return dao.getAdministrators();
 	}
 
 	public List<Account> findAll() {
-		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
 	

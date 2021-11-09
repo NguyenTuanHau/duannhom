@@ -16,14 +16,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="item in items">
-              <td>{{item.username}}</td>
-              <td>{{item.fullname}}</td>
-              <td>{{item.email}}</td>
-              <td>{{item.photo}}</td>
+            <tr ng-repeat="acc in admins">
+              <td>{{acc.username}}</td>
+              <td>{{acc.name}}</td>
+              <td>{{acc.email}}</td>
+              <td>{{acc.image}}</td>
               <td>
-                <button ng-click="edit(item)" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                <button ng-click="delete(item)" class="btn btn-danger"><i class="fas fa-recycle"></i></button>
+                <button ng-click="edit(acc)" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button ng-click="delete(acc)" class="btn btn-danger"><i class="fas fa-recycle"></i></button>
               </td>
             </tr>
           </tbody>

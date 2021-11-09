@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header card-header-primary">
-    <h4 class="card-title">CHá»ˆNH Sá»¬A TÃ€I KHOáº¢N</h4>
+    <h4 class="card-title">Thông tin tài khoản</h4>
   </div>
   <div class="card-body">
     <form>
@@ -19,13 +19,13 @@
         <div class="row">
           <div class="col-md-7">
             <div class="form-group">
-              <label class="bmd-label-floating">TÃªn Ä‘Äƒng nháº­p</label>
+              <label class="bmd-label-floating">Tên đăng nhập</label>
               <input ng-model="form.username" class="form-control" required>
             </div>
           </div>
           <div class="col-md-5">
             <div class="form-group">
-              <label class="bmd-label-floating">Máº­t kháº©u</label>
+              <label class="bmd-label-floating">Mật khẩu</label>
               <input ng-model="form.password" type="password" class="form-control" required>
             </div>
           </div>
@@ -33,8 +33,8 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="bmd-label-floating">Há»� vÃ  tÃªn</label>
-              <input ng-model="form.fullname" class="form-control" required>
+              <label class="bmd-label-floating">Họ và tên</label>
+              <input ng-model="form.name" class="form-control" required>
             </div>
           </div>
           <div class="col-md-6">
@@ -47,23 +47,23 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label class="bmd-label-floating">Quyá»�n hÃ nh</label>
+              <label class="bmd-label-floating">Quyền</label>
               <input ng-model="form.authorities.id" class="form-control" readonly>
             </div>
           </div>
         </div>
       </div>
       <button ng-click="create()" class="btn btn-primary pull-right">
-        <b><i class="fas fa-plus-circle"></i> ThÃªm</b>
+        <b><i class="fas fa-plus-circle"></i>Thêm mới</b>
       </button>
       <button ng-click="update()" class="btn btn-success pull-right">
-        <b><i class="fas fa-edit"></i> Cáº­p nháº­t</b>
+        <b><i class="fas fa-edit"></i>Cập nhật</b>
       </button>
       <button ng-click="delete(form)" class="btn btn-danger pull-right">
-        <b><i class="fas fa-recycle"></i> XÃ³a</b>
+        <b><i class="fas fa-recycle"></i>Xóa</b>
       </button>
       <button ng-click="reset()" class="btn btn-info pull-right">
-        <b><i class="fas fa-redo-alt"></i> LÃ m má»›i</b>
+        <b><i class="fas fa-redo-alt"></i>Làm mới</b>
       </button>
 
       <div class="clearfix"></div>

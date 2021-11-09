@@ -24,20 +24,20 @@ public class AccountRestController {
 	@Autowired
 	AccountService accountService;
 	
-	@GetMapping()
-	public List<Account> getAccounts(@RequestParam("admin") Optional<Boolean> admin){
+	@GetMapping
+	public List<Account> getAccounts(@RequestParam("admin")Optional<Boolean> admin){
 		if(admin.orElse(false)) {
 			return accountService.getAdministrators();
 		}
 		return accountService.findAll();
 	}
 	
-	@GetMapping("{username}")
-	public Account getOne(@PathVariable("username") String username) {
-		return accountService.findById(username);
-	}
-	@DeleteMapping("{username}")
-	public void delete(@PathVariable("username") String username) {
-		accountService.delete(username);
-	}
+//	@GetMapping("{username}")
+//	public Account getOne(@PathVariable("username") String username) {
+//		return accountService.findById(username);
+//	}
+//	@DeleteMapping("{username}")
+//	public void delete(@PathVariable("username") String username) {
+//		accountService.delete(username);
+//	}
 }

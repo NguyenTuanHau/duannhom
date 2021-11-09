@@ -35,6 +35,10 @@ app.config(function($routeProvider) {
 			templateUrl: "/assets/admin/tai_khoan/index.html",
 			controller: "account-ctrl"
 		})
+		.when("/unauthorized", {
+			templateUrl: "/assets/admin/tai_khoan/unauthorized.html",
+			controller: "account-ctrl"
+		})
 		.when("/order", {
 			templateUrl: "/assets/admin/order/index.html",
 			controller: "order-ctrl"
@@ -42,14 +46,6 @@ app.config(function($routeProvider) {
 		.when("/hosocanhan", {
 			templateUrl: "/assets/admin/ho_so/index.html",
 			controller: "profile-ctrl"
-		})
-		.when("/authorize", {
-			templateUrl: "/assets/admin/authority/index.html",
-			controller: "authority-ctrl"
-		})
-		.when("/unauthorized", {
-			templateUrl: "/assets/admin/authority/unauthorized.html",
-			controller: "authority-ctrl"
 		})
 		.when("/error-403", {
 			templateUrl: "/assets/admin/loi/error-403.html",
