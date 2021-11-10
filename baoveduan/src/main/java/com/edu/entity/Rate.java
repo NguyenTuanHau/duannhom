@@ -29,6 +29,9 @@ public class Rate implements Serializable{
 	
 	String comment;
 	Double star;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "Create_date")
+	Date createDate = new Date();
 	
 //	@Temporal(TemporalType.DATE)
 //	@Column(name = "createDate")
@@ -41,5 +44,9 @@ public class Rate implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	Account account;
+
+	public void setRate(Date createDate) {
+		this.createDate = createDate;
+	}
 	
 }

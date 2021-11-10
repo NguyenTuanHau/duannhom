@@ -20,9 +20,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="row featured__filter "> <!-- col-md-3 col-sm-6 mix fastfood oranges -->
+		<div class="row featured__filter" id="vao"> <!-- col-md-3 col-sm-6 mix fastfood oranges -->
 			<div th:each="p:${items}" 
-				class="col-md-3 col-sm-6 mix" th:classappend="${p.category.categoryid}">
+				class="col-md-3 col-sm-6 mix" th:classappend="${p.category.categoryid}" id="show">
 				<div class="product-grid ">
 					<div class="product-image ">
 						<img class="pic-1 " th:src="@{|/assets/img/featured/${p.image}|}"
@@ -47,6 +47,7 @@
 						<li class="fa fa-star "></li>
 						<li class="fa fa-star "></li>
 						<li class="fa fa-star disable "></li>
+						
 					</ul>
 					<div class="product-content ">
 						<h3 class="title ">
@@ -59,6 +60,6 @@
 				</div>
 			</div>
 		</div>
-		<center><a style="color: #7fad39; font: bold; " href="">Xem thêm >></a></center>
+		<!-- <center><a style="color: #7fad39; font: bold; " href="">Xem thêm >></a></center> -->
 	</div>
 </section>
