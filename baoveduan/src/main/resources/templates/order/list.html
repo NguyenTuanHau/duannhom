@@ -27,17 +27,17 @@
 		<div class="panel panel-primary">
 			<div
 				style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
-			<h2 style="text-align: center;">Lịch sử đơn hàng</h2>
+			<h2 style="text-align: center;">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</h2>
 			<br>
 			<br>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Mã</th>
-						<th>Mã đơn hàng</th>
-						<th>Ngày đặt</th>
-						<th>Số điện thoại</th>
-						<th>Địa chỉ</th>
+						<th>MÃ£</th>
+						<th>MÃ£ Ä‘Æ¡n hÃ ng</th>
+						<th>NgÃ y Ä‘áº·t</th>
+						<th>Sá»‘ Ä‘iá»‡n thoáº¡i</th>
+						<th>Ä�á»‹a chá»‰</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -49,12 +49,13 @@
 						<td>[[${order.numberphone}]]</td>
 						<td>[[${order.address}]]</td>
 						<td>
-							<button>
+							<button style="background-color: red;">
 								<a th:href="@{|/order/detail/${order.id}|}"
-									class="btn btn-default"> <b
-									class="glyphicon glyphicon-search"></b>
+									class="btn btn-default">
+									 <i class="fa fa-search" aria-hidden="true" style="color: white;"></i></b>
 								</a>
 							</button>
+
 						</td>
 					</tr>
 				</tbody>

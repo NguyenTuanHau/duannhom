@@ -2337,7 +2337,7 @@ ol {
 }
 
 .blog__item__pic img {
-    min-width: 100%;
+    /* min-width: 100%; */
 }
 
 .blog__item__text {
