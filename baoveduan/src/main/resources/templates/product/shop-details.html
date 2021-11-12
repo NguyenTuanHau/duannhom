@@ -71,12 +71,11 @@
 							<ul class="nav nav-tabs" role="tablist">
 								<li class="nav-item"><a class="nav-link active"
 									data-toggle="tab" href="#tabs-1" role="tab"
-									aria-selected="true">MiÃªu táº£</a></li>
+									aria-selected="true">Miêu tả</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-2" role="tab" aria-selected="false">ThÃ´ng tin</a>
-								</li>
+									href="#tabs-2" role="tab" aria-selected="false">Thông tin</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#tabs-3" role="tab" aria-selected="false">Ä�Ã¡nh giÃ¡<span>(1)</span></a>
+									href="#tabs-3" role="tab" aria-selected="false">Đánh giá <span>(1)</span></a>
 								</li>
 							</ul>
 							<div class="tab-content">
@@ -107,22 +106,25 @@
 														class="mr-3 mt-3 rounded-circle" style="width: 60px;">
 													<div class="media-body my-date">
 														<h4>
-															[[*{account.username}]] <small></small>
+															[[*{account.username}]]
 														</h4>
-														<i>[[*{createDate}]]</i>
+														<p>[[*{createDate}]]</p>
 														<p>[[*{comment}]]</p>
+														<p>[[*{star}]] <i class="fa fa-star"></i></p>
 													</div>
 												</div>
 											</div>
 											<br> <br> <br>
 										</div>
-
-										<a th:data-id="*{productid}"
-											onclick="hienHopThoaiDanhGia(this.getAttribute('data-id'))">
-											<button type="button" class="btn btn-primary btn-lg"
-												data-toggle="modal" data-target="#exampleModal">
-												Bình luận</button>
-										</a>
+										<br> <br>
+										<center>
+											<a th:data-id="*{productid}"
+												onclick="hienHopThoaiDanhGia(this.getAttribute('data-id'))">
+												<button type="button" class="btn btn-primary btn-lg"
+													data-toggle="modal" data-target="#exampleModal">
+													Bình luận</button></a>
+										</center>
+										<br> <br>
 
 										<!--BÌNH LUẬN-->
 										<div class="modal fade" id="hopThoaiRate" tabindex="-1"
@@ -142,7 +144,7 @@
 														</div> -->
 														<div class="modal-header">
 															<fieldset class="rating">
-																<legend>Đánh giá :</legend>
+																<legend>Đánh giá</legend>
 																<input type="radio" id="star5" name="star" value="5" /><label
 																	for="star5" title="Rocks!">5 stars</label> <input
 																	type="radio" id="star4" name="star" value="4" /><label
@@ -164,8 +166,14 @@
 															<button type="button" class="btn btn-secondary"
 																data-dismiss="modal">Hủy</button>
 
-															<button id="xacNhan" type="submit"
-																class="btn btn-primary">Lưu đánh giá</button>
+															<th:block th:unless="${#request.remoteUser}">
+																<a th:href="@{/security/login/form}"
+																	class="btn btn-primary">Vui lòng đăng nhập</a>
+															</th:block>
+
+															<button th:if="${#request.remoteUser}" id="xacNhan"
+																type="submit" class="btn btn-primary">Lưu đánh
+																giá</button>
 
 														</div>
 													</div>
