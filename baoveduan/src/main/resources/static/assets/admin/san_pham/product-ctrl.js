@@ -127,7 +127,7 @@ app.controller("product-ctrl", function($scope, $http) {
     $scope.paging = function(type) {
         if (type == 0 && $scope.currentpage > 0) {
             --$scope.currentpage;
-        } else if (type == 1 && $scope.currentpage < $scope.pagenumber-1) {
+        } else if (type == 1 && $scope.currentpage < $scope.pagenumber - 1) {
             ++$scope.currentpage;
         }
     }

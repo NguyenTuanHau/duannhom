@@ -1,50 +1,54 @@
 <div class="card">
-  <div class="card-header card-header-primary">
-    <h4 class="card-title">Thông tin tài khoản</h4>
-  </div>
-  <div class="card-body">
-    <form>
-      <!--CHá»– NÃ€Y Ä�á»‚ HÃŒNH-->
-      <div class="col-md-4">
+	<div class="card-header card-header-primary">
+		<h4 class="card-title">Thông tin tài khoản</h4>
+	</div>
+	<div class="card-body">
+		<form>
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="image"> <img
+							ng-src="{{'/assets/images/account'+ form.image}}"
+							style="max-width: 100%;">
+						</label>
+						<div class="card-body">
+							<input type="file" class="btn" id="image"
+								onchange="angular.element(this).scope().imageChanged(this.files)">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating">Tên đăng nhập</label> <input
+										ng-model="form.username" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating">Mật khẩu</label> <input
+										ng-model="form.password" type="password" class="form-control"
+										required>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating">Họ và tên</label> <input
+										ng-model="form.name" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label class="bmd-label-floating">Email</label> <input
+										type="email" ng-model="form.email" class="form-control"
+										required>
+								</div>
+							</div>
+						</div>
 
-        <label for="image">
-          <img ng-src="{{'/assets/images/account'+ form.image}}" style="max-width: 100%;">
-        </label>
-        <div class="card-body">
-          <input type="file" class="btn" id="image" onchange="angular.element(this).scope().imageChanged(this.files)">
-        </div>
 
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-7">
-            <div class="form-group">
-              <label class="bmd-label-floating">Tên đăng nhập</label>
-              <input ng-model="form.username" class="form-control" required>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="form-group">
-              <label class="bmd-label-floating">Mật khẩu</label>
-              <input ng-model="form.password" type="password" class="form-control" required>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">Họ và tên</label>
-              <input ng-model="form.name" class="form-control" required>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">Email</label>
-              <input type="email" ng-model="form.email" class="form-control" required>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="row">
+					</div>
+					<!-- <div class="row">
           <div class="col-md-12">
             <div class="form-group">
               <label class="bmd-label-floating">Quyền</label>
@@ -52,23 +56,24 @@
             </div>
           </div>
         </div> -->
-      </div>
-      <button ng-click="create()" class="btn btn-primary pull-right">
-        <b><i class="fas fa-plus-circle"></i>Thêm mới</b>
-      </button>
-      <button ng-click="update()" class="btn btn-success pull-right">
-        <b><i class="fas fa-edit"></i>Cập nhật</b>
-      </button>
-      <button ng-click="delete(form)" class="btn btn-danger pull-right">
-        <b><i class="fas fa-recycle"></i>Xóa</b>
-      </button>
-      <button ng-click="reset()" class="btn btn-info pull-right">
-        <b><i class="fas fa-redo-alt"></i>Làm mới</b>
-      </button>
-
-      <div class="clearfix"></div>
-
-    </form>
-  </div>
-</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+		<br> <br> <br> <br> <br>
+		<center>
+			<button ng-click="create()" class="btn btn-primary pull-right">
+				<b><i class="fas fa-plus-circle"></i> Thêm mới</b>
+			</button>
+			<button ng-click="update()" class="btn btn-success pull-right">
+				<b><i class="fas fa-edit"></i> Cập nhật</b>
+			</button>
+			<button ng-click="delete(form)" class="btn btn-danger pull-right">
+				<b><i class="fas fa-recycle"></i> Xóa</b>
+			</button>
+			<button ng-click="reset()" class="btn btn-info pull-right">
+				<b><i class="fas fa-redo-alt"></i> Làm mới</b>
+			</button>
+		</center>
+	</div>
 </div>

@@ -86,7 +86,7 @@ app.controller("tintuc-ctrl", function ($scope, $http) {
 
     $scope.pager = {
         page: 0,
-        size: 1,
+        size: 3,
         get items(){
             var start = this.page*this.size;
             return $scope.items.slice(start, start + this.size);
@@ -100,7 +100,7 @@ app.controller("tintuc-ctrl", function ($scope, $http) {
         prev(){
             this.page--;
             if(this.page < 0){
-                this.last;
+                this.last();
             }
         },
         next(){

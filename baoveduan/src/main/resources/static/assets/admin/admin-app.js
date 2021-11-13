@@ -1,4 +1,4 @@
-app = angular.module("admin-app", ["ngRoute"]);
+app = angular.module("admin-app", ["ngRoute", "angularUtils.directives.dirPagination"]);
 
 app.config(function($routeProvider) {
     $routeProvider

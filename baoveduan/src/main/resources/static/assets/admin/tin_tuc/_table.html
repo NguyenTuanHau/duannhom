@@ -282,13 +282,13 @@
 									<tr>
 										<th>Mã tin tức</th>
 										<th>Tên chủ đề</th>
-										<th>Nội dung chính</th>
+										<!-- <th>Nội dung chính</th>
 										<th>Nội dung phụ 1</th>
 										<th>Nội dung phụ 2</th>
-										<th>Nội dung phụ 3</th>
+										<th>Nội dung phụ 3</th> -->
 										<th>Hình ảnh chính</th>
-										<th>Hình ảnh phụ 1</th>
-										<th>Hình ảnh phụ 2</th>
+										<!-- <th>Hình ảnh phụ 1</th>
+										<th>Hình ảnh phụ 2</th> -->
 										<th>Ngày tạo</th>
 										<th></th>
 									</tr>
@@ -299,16 +299,16 @@
 										<!--  | orderBy:'-createDate' -->
 										<td>{{item.id}}</td>
 										<td>{{item.title}}</td>
-										<td>{{item.contents_short}}</td>
+										<!-- <td>{{item.contents_short}}</td>
 										<td>{{item.contents_para1}}</td>
 										<td>{{item.contents_para2}}</td>
-										<td>{{item.contents_para3}}</td>
+										<td>{{item.contents_para3}}</td> -->
 										<td><img ng-src="{{'/assets/img/blog/'+ item.image}}"
 											style="width: 100px; height: 100px"></td>
-										<td><img ng-src="{{'/assets/img/blog/'+ item.image1}}"
+										<!-- <td><img ng-src="{{'/assets/img/blog/'+ item.image1}}"
 											style="width: 100px; height: 100px"></td>
 										<td><img ng-src="{{'/assets/img/blog/'+ item.image2}}"
-											style="width: 100px; height: 100px"></td>
+											style="width: 100px; height: 100px"></td> -->
 										<td>{{item.createdate}}</td>
 										<td>
 											<button ng-click="edit(item)" class="btn btn-success">
