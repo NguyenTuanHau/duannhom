@@ -51,17 +51,18 @@ app.controller("product-ctrl", function($scope, $http) {
             });
         }
         // Cập nhật sp
-    $scope.update = function() {
-            var item = angular.copy($scope.form);
-            $http.post(`/rest/products/${item.id}`, item).then(resp => {
-                var index = $scope.items.findIndex(p => p.productid == item.id);
-                $scope.items[index] = item;
-                alert("Cập nhật sản phẩm thành công!");
-            }).catch(error => {
-                alert("Lỗi cập nhật sản phẩm");
-                console.log("Error", error);
-            });
-        }
+    $scope.update = function(){
+    	var item = angular.copy($scope.form);
+    	$http.put(`/rest/products/${item.productid}`,item).then(resp =>{
+            var index = $scope.items.findIndex(p => p.productid == item.productid);
+            $scope.items[index] = item;
+            alert("Cập Nhật Sản Phẩm Thành Công!");
+
+        }).catch(error => {
+            alert("Lỗi Cập Nhật Sản Phẩm!");
+            console.log("Error",error);
+        });
+    }
         // Xóa sp
     $scope.delete = function(item) {
             $http.delete(`/rest/products/${item.productid}`).then(resp => {

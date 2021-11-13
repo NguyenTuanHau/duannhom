@@ -37,7 +37,9 @@ app.controller("category-ctrl", function($scope, $http) {
 		$http.put(`/rest/categories/${item.id}`, item).then(resp => {
 			var index = $scope.items.findIndex(c => c.categoryid == item.id);
 			$scope.items[index] = item;
+			$scope.reset();
 			alert("Cập nhật danh mục thành công");
+			
 		}).catch(error => {
 			alert("Lỗi cập nhật danh mục");
 			console.log("Error", error);
