@@ -29,6 +29,17 @@ public class HomeController {
 		
 		List<Blog> blog = blogService.findAll();
 		model.addAttribute("blog",blog);
+		
+		String sortField = "price";
+		String sortDir = "asc";
+		String keyword = null;
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("keyword", keyword);
+		
+		String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+		model.addAttribute("reverseSortDir", reverseSortDir);
+		
 //		if(cid.isPresent()) {
 //			List<Product> list = productService.findByCategoryId(cid.get());
 //			model.addAttribute("items",list);

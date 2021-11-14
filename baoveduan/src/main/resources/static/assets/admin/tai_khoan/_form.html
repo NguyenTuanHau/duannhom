@@ -21,7 +21,7 @@
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating">Tên đăng nhập</label> <input
-										ng-model="form.username" class="form-control" required>
+										ng-model="form.account.username" class="form-control" required>
 								</div>
 							</div>
 							<div class="col-sm-12">
@@ -34,16 +34,23 @@
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating">Họ và tên</label> <input
-										ng-model="form.name" class="form-control" required>
+										ng-model="form.account.name" class="form-control" required>
 								</div>
 							</div>
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label class="bmd-label-floating">Email</label> <input
-										type="email" ng-model="form.email" class="form-control"
-										required>
+										type="email" ng-model="form.account.email"
+										class="form-control" required>
 								</div>
 							</div>
+							<div class="form-group col-sm-6">
+								<div>Vai trò</div>
+								<select ng-model="form.role.id" class="form-control">
+									<option ng-repeat="role in roles" ng-value="role.id">{{role.name}}</option>
+								</select>
+							</div>
+
 						</div>
 
 

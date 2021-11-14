@@ -32,12 +32,12 @@ public class AccountRestController {
 		return accountService.findAll();
 	}
 	
-//	@GetMapping("{username}")
-//	public Account getOne(@PathVariable("username") String username) {
-//		return accountService.findById(username);
-//	}
-//	@DeleteMapping("{username}")
-//	public void delete(@PathVariable("username") String username) {
-//		accountService.delete(username);
-//	}
+	@GetMapping("{username}")
+	public Account getOne(@PathVariable("username") String username) {
+		return accountService.findById(username);
+	}
+	@DeleteMapping("{username}")
+	public void delete(@PathVariable("username") String username) {
+		accountService.delete(username);
+	}
 }

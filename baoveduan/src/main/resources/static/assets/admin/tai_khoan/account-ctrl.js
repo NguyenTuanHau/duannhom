@@ -22,6 +22,7 @@ app.controller("account-ctrl", function($scope,$http, $location){
             $location.path("/unauthorized");
         })
     }
+    
 
 	//So sánh username và role để check lên
     $scope.authority_of = function(acc, role){
@@ -79,6 +80,21 @@ app.controller("account-ctrl", function($scope,$http, $location){
             image: 'box.jpg',
             
         }
+    }
+    
+     // Upload hình
+    $scope.imageChanged = function(files) {
+        var data = new FormData();
+        data.append('file', files[0]);
+        $http.post('/rest/upload/img', data, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(resp => {
+            $scope.form.image = resp.data.name;
+        }).catch(error => {
+            alert("Lỗi upload hình ảnh");
+            console.log("Error", error);
+        })
     }
     
 });

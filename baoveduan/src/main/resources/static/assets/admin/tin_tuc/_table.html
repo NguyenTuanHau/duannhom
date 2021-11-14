@@ -160,7 +160,7 @@
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Mã tin tức</font></font></label> <input
 						type="text" name="filter_order_id" value=""
-						placeholder="ID đặt hàng" id="input-order-id" class="form-control">
+						placeholder="Nhập mã tin tức" id="input-order-id" class="form-control" ng-model="searchText.id">
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="input-customer"><font
@@ -168,62 +168,33 @@
 							style="vertical-align: inherit;">Tên chủ đề</font></font></label> <input
 						type="text" name="filter_customer" value=""
 						placeholder="Nhập tên chủ đề" id="input-customer"
-						class="form-control" autocomplete="off">
+						class="form-control" autocomplete="off" ng-model="searchText.title">
 					<ul class="dropdown-menu"></ul>
 				</div>
-				<!-- <div class="form-group">
-						<label class="control-label" for="input-order-status"><font
-							style="vertical-align: inherit;"><font
-								style="vertical-align: inherit;">Nội dung</font></font></label> <select
-							name="filter_order_status_id" id="input-order-status"
-							class="form-control">
-							<option value=""></option>
-							<option value="0"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Nội dung chính</font></font></option>
-							<option value="7"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Đã hủy</font></font></option>
-							<option value="9"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">hủy bỏ không được thực
-										hiện</font></font></option>
-							<option value="13"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Bồi hoàn</font></font></option>
-							<option value="5"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Hoàn thành</font></font></option>
-							<option value="8"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Từ chối</font></font></option>
-							<option value="14"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Hết hạn</font></font></option>
-							<option value="10"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Thất bại</font></font></option>
-							<option value="1"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Chưa giải quyết</font></font></option>
-							<option value="15"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Xử lý</font></font></option>
-							<option value="2"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Xử lý</font></font></option>
-							<option value="11"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Đã hoàn lại</font></font></option>
-							<option value="12"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Đảo ngược</font></font></option>
-							<option value="3"><font style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Đã vận chuyển</font></font></option>
-							<option value="16"><font
-									style="vertical-align: inherit;"><font
-									style="vertical-align: inherit;">Bỏ phiếu</font></font></option>
-						</select>
-					</div>
- -->
 				<div class="form-group">
+					<label class="control-label" for="input-date-added"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Ngày thêm</font></font></label>
+					<div class="input-group date">
+						<!-- <input
+							ng-model=" form.createDate" type="date" class="form-control"> -->
+				<!-- 		<input class="datepicker" data-date-format="mm/dd/yyyy"
+							placeholder="Nhập theo năm-tháng-ngày"
+							ng-model=" searchText.createDate">  -->
+						<input type="text"
+							name="filter_customer" value="" placeholder="Năm-tháng-ngày"
+							id="input-customer" class="form-control" autocomplete="off" data-date-format="mm/dd/yyyy"
+							ng-model="searchText.createdate" />
+					</div>
+				</div>
+				
+				
+				
+				<!-- <div class="form-group">
 					<label class="control-label" for="input-total"><font
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Nội dung</font></font></label> <input
-						type="text" name="filter_total" value="" placeholder="Toàn bộ"
+						type="text" name="filter_total" value="" placeholder="Nhập nội dung"
 						id="input-total" class="form-control">
 				</div>
 				<div class="form-group">
@@ -255,13 +226,13 @@
 							</button>
 						</span>
 					</div>
-				</div>
-				<div class="form-group text-right">
+				</div> -->
+				<!-- <div class="form-group text-right">
 					<button type="button" id="button-filter" class="btn btn-default">
 						<i class="fa fa-filter"></i><font style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;"> Lọc</font></font>
 					</button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -295,7 +266,8 @@
 								</thead>
 
 								<tbody>
-									<tr ng-repeat="item in pager.items ">
+									<tr
+										dir-paginate="item in items | orderBy:items | filter:searchText | itemsPerPage: 3 ">
 										<!--  | orderBy:'-createDate' -->
 										<td>{{item.id}}</td>
 										<td>{{item.title}}</td>
@@ -321,6 +293,8 @@
 									</tr>
 								</tbody>
 							</table>
+							<dir-pagination-controls max-size="5" direction-links="true"
+								boundary-links="true"> </dir-pagination-controls>
 						</div>
 					</div>
 				</div>
@@ -328,20 +302,5 @@
 		</div>
 	</div>
 </div>
-<div class="panel-footer text-center">
-	<button ng-click="pager.first()" class="btn btn-danger">
-		<b class="fas fa-angle-left"></b>
-	</button>
-	<button ng-click="pager.prev()" class="btn btn-primary">
-		<b class="fas fa-angle-down"></b>
-	</button>
-	<button class="btn btn-success">{{pager.page+1}} of
-		{{pager.count}}</button>
-	<button ng-click="pager.next()" class="btn btn-primary">
-		<b class="fas fa-angle-up"></b>
-	</button>
-	<button ng-click="pager.last()" class="btn btn-danger">
-		<b class="fas fa-angle-right"></b>
-	</button>
-</div>
+
 </div>
