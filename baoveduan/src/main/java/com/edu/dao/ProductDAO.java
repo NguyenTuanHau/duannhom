@@ -12,6 +12,9 @@ import com.edu.entity.Product;
 
 
 public interface ProductDAO extends JpaRepository<Product, Integer> {
+//	@Query("SELECT p FROM Product p WHERE p.category.id=?1")
+//	public Page<Product> findAllcate(String cid, Pageable pageable);
+	
 	@Query("SELECT p FROM Product p WHERE p.category.id=?1")
 	public List<Product> findByCategoryId(String cid);
 	
@@ -28,6 +31,5 @@ public interface ProductDAO extends JpaRepository<Product, Integer> {
 
 	
 
-	
 
 }

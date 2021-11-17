@@ -39,3 +39,25 @@ $(function() {
 		show();
 	})
 })
+
+//shopcate
+$(function() {
+	let pageNo = 0;
+	let pageSize = 6;
+	
+	function show(){
+		$("#vaokhongcate #showxuongcate" ).each(function(product, sp) {
+			if(product >= 0 && product < (pageNo + 1) * pageSize) {
+				$(sp).show();			
+			}else {
+				$(sp).hide();
+			}
+		})
+	}
+	
+	show();
+	$("#showkhongcate").click(function() {
+		pageNo+=1;
+		show();
+	})
+})

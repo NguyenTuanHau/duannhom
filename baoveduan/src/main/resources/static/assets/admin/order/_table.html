@@ -181,7 +181,7 @@
 										<td>{{item.numberphone}}</td>
 										<td>
 											
-											<button type="button" class="btn btn-primary"
+											<button type="button" class="btn btn-primary" ng-click="edit(item)"
 												data-bs-toggle="modal" data-bs-target="#exampleModal"
 												data-bs-whatever="@mdo">
 												<i class="fas fa-search"></i>
@@ -206,14 +206,14 @@
 																		<div class="col-lg-3 col-md-3">
 																			<div class="mb-3">
 																				<label for="recipient-name" class="col-form-label">Mã
-																					đơn hàng:</label> <input ng-model="form.productid"
+																					đơn hàng:</label> <input hidden ng-model="form.id"
 																					class="form-control">
 																			</div>
 																		</div>
 																		<div class="col-lg-3 col-md-3">
 																			<div class="mb-3">
 																				<label for="recipient-name" class="col-form-label">Tên
-																					khách hàng:</label> <input ng-model="form.productid"
+																					khách hàng:</label> <input ng-model="form.account.username"
 																					class="form-control">
 																			</div>
 																		</div>
@@ -257,48 +257,12 @@
 																						<th style="font-weight: bold;">Số lượng</th>
 																						<th style="font-weight: bold;">Tổng tiền</th>
 																					</tr>
-																					<tr>
-																						<td>Jill</td>
+																					<tr ng-repeat="item in items">
 																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
-																					</tr>
-																					<tr>
-																						<td>Jill</td>
 																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
+																						
 																					</tr>
-																					<tr>
-																						<td>Jill</td>
-																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
-																					</tr>
-																					<tr>
-																						<td>Jill</td>
-																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
-																					</tr>
-																					<tr>
-																						<td>Jill</td>
-																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
-																					</tr>
-																					<tr>
-																						<td>Jill</td>
-																						<td></td>
-																						<td>120000</td>
-																						<td>2</td>
-																						<td>240000</td>
-																					</tr>
+																					
 																				</table>
 																			</div>
 																		</div>

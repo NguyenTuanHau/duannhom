@@ -2337,7 +2337,7 @@ ol {
 }
 
 .blog__item__pic img {
-    /* min-width: 100%; */
+   /*  min-width: 100%; */
 }
 
 .blog__item__text {
@@ -2480,7 +2480,7 @@ ol {
 }
 
 .blog__sidebar__recent .blog__sidebar__recent__item {
-    display: block;
+   /*  display: block; */
 }
 
 .blog__sidebar__recent .blog__sidebar__recent__item:last-child {
@@ -3720,9 +3720,9 @@ ol {
     padding-left: 30px;
 }
 
-
+/* T */
 .dropdown-menu.multi-column {
-    width: 400px;
+    width: 185px;
 }
  
 .dropdown-menu.multi-column .dropdown-menu {
@@ -3734,7 +3734,7 @@ ol {
 }
 
 .dropdown-menu a{
-	color: green;
+	color: teal;
 }
 
 .user-menu .user-image {

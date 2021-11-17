@@ -12,18 +12,18 @@
               <th>Họ và tên</th>
               <th>Email</th>
               <th>Hình</th>
-              <th>Vai trò</th>
+
               
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="acc in authorities">
-              <td>{{acc.account.username}}</td>
-              <td>{{acc.account.name}}</td>
-              <td>{{acc.account.email}}</td>
-              <td>{{acc.account.image}}</td>
-              <td>{{acc.role.name}}</td>
+            <tr ng-repeat="acc in admins">
+              <td>{{acc.username}}</td>
+              <td>{{acc.name}}</td>
+              <td>{{acc.email}}</td>
+              <td>{{acc.image}}</td>
+              
               <td>
                 <button ng-click="edit(acc)" class="btn btn-success"><i class="fas fa-edit"></i></button>
                 <button ng-click="delete(acc)" class="btn btn-danger"><i class="fas fa-recycle"></i></button>

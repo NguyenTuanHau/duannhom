@@ -20,8 +20,10 @@ public interface ProductService {
 //	Page<Product> findAllPage(int pageNumber);
 	
 	Page<Product> findAllPage(int currentPage, String sortField, String sortDir, String keyword);
+	
+//	Page<Product> findAllPage(int currentPage, String cid);
 
-//	List<Product> findCatePage(String cid, int currentPage, String sortField, String sortDir, String keyword);
+	Page<Product> findAllPage(int currentPage, String sortField, String sortDir, String keyword, String cid);
 
 	List<Product> filerBetweenPrice(Double priceMin, Double priceMax);
 
@@ -30,5 +32,6 @@ public interface ProductService {
 	Product update(Product product);
 
 	void delete(Integer productid);
+
 	
 }

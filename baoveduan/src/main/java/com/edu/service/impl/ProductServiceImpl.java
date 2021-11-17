@@ -34,16 +34,35 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword) {
+	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword	) {
 
 		Sort sort = Sort.by(sortField);
 		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
+		
 		Pageable pageable = PageRequest.of(pageNumber - 1, 9, sort);
 
 		if (keyword != null) {
 			return pdao.findAll(keyword, pageable);
 		}
 
+		return pdao.findAll(pageable);
+	}
+	
+//	@Override
+//	public Page<Product> findAllPage(int pageNumber, String cid) {
+//		Pageable pageable = PageRequest.of(pageNumber - 1, 2);
+//		return pdao.findAllcate(cid, pageable);
+//	}
+	
+	@Override
+	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword, String cid) {
+		Sort sort = Sort.by(sortField);
+		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
+		Pageable pageable = PageRequest.of(pageNumber - 1, 2, sort);
+
+		if (keyword != null) {
+			return pdao.findAll(keyword, pageable);
+		}
 		return pdao.findAll(pageable);
 	}
 
@@ -70,5 +89,9 @@ public class ProductServiceImpl implements ProductService {
 	public Product create(Product product) {
 		return pdao.save(product);
 	}
+
+	
+
+	
 
 }
