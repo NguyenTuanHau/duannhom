@@ -77,10 +77,10 @@ public class AccountServiceImpl implements AccountService{
 
 
 
-	@Override
-	public void delete(String username) {
-		dao.deleteById(username);
-	}
+//	@Override
+//	public void delete(String username) {
+//		dao.deleteById(username);
+//	}
 
 
 	@Override
@@ -90,6 +90,12 @@ public class AccountServiceImpl implements AccountService{
 	
 	@Override
 	public Account update(Account account) {
+		return dao.save(account);
+	}
+	
+	@Override
+	public Account delete(Account account) {
+		account.setDeletehiden(true);
 		return dao.save(account);
 	}
 	

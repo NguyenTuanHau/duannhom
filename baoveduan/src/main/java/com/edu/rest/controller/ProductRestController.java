@@ -43,9 +43,14 @@ public class ProductRestController {
 	public Product update(@PathVariable("productid") Integer productid, @RequestBody Product product) {
 		return productService.update(product);
 	}
-
-	@DeleteMapping("{productid}")
-	public void delete(@PathVariable("productid") Integer productid) {
-		productService.delete(productid);
+	
+	@PutMapping("/delete/{productid}")
+	public Product delete(@PathVariable("productid") Integer productid, @RequestBody Product product) {
+		return productService.delete(product);
 	}
+
+//	@DeleteMapping("{productid}")
+//	public void delete(@PathVariable("productid") Integer productid) {
+//		productService.delete(productid);
+//	}
 }

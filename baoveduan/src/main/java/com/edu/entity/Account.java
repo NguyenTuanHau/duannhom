@@ -44,6 +44,7 @@ public class Account implements Serializable {
 	String email;
 	String phone;
 	String image;
+	boolean deletehiden = false;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")

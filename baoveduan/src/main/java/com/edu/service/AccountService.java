@@ -23,9 +23,11 @@ public interface AccountService {
 
 	Optional<Account> findByEmail(String email);
 
-	void delete(String username);
+//	void delete(String username);
 	
 	Account create(Account account);
 	
 	Account update(Account account);
+	
+	Account delete(Account account);
 }

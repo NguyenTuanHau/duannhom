@@ -28,18 +28,18 @@ public class AccountRestController {
 	@Autowired
 	AccountService accountService;
 	
-//	@GetMapping
-//	public List<Account> getAccounts(@RequestParam("admin")Optional<Boolean> admin){
-//		if(admin.orElse(true)) {
-//			return accountService.getAdministrators();
-//		}
-//		return accountService.findAll();
-//	}
-	
-	@GetMapping()
-	public List<Account> getAll() {
+	@GetMapping
+	public List<Account> getAccounts(@RequestParam("admin")Optional<Boolean> admin){
+		if(admin.orElse(true)) {
+			return accountService.getAdministrators();
+		}
 		return accountService.findAll();
 	}
+	
+//	@GetMapping()
+//	public List<Account> getAll() {
+//		return accountService.findAll();
+//	}
 	
 	@GetMapping("{username}")
 	public Account getOne(@PathVariable("username") String username) {
@@ -55,8 +55,15 @@ public class AccountRestController {
 			@RequestBody Account account) {
 		return accountService.update(account);
 	}
-	@DeleteMapping("{username}")
-	public void delete(@PathVariable("username") String username) {
-		accountService.delete(username);
+	
+	@PutMapping("delete/{username}")
+	public Account delete(@PathVariable("username") String username,
+			@RequestBody Account account) {
+		return accountService.delete(account);
 	}
+	
+//	@DeleteMapping("{username}")
+//	public void delete(@PathVariable("username") String username) {
+//		accountService.delete(username);
+//	}
 }

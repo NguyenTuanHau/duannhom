@@ -39,6 +39,7 @@ public class Product implements Serializable {
 	String des_long;
 	String information;
 	boolean status;
+	boolean deletehiden = false;
 	
 	@ManyToOne
 	@JoinColumn(name = "Categoryid")

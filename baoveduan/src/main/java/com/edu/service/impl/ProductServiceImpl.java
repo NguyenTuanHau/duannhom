@@ -54,17 +54,17 @@ public class ProductServiceImpl implements ProductService {
 //		return pdao.findAllcate(cid, pageable);
 //	}
 	
-	@Override
-	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword, String cid) {
-		Sort sort = Sort.by(sortField);
-		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
-		Pageable pageable = PageRequest.of(pageNumber - 1, 2, sort);
-
-		if (keyword != null) {
-			return pdao.findAll(keyword, pageable);
-		}
-		return pdao.findAll(pageable);
-	}
+//	@Override
+//	public Page<Product> findAllPage(int pageNumber, String sortField, String sortDir, String keyword, String cid) {
+//		Sort sort = Sort.by(sortField);
+//		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
+//		Pageable pageable = PageRequest.of(pageNumber - 1, 2, sort);
+//
+//		if (keyword != null) {
+//			return pdao.findAll(keyword, pageable);
+//		}
+//		return pdao.findAll(pageable);
+//	}
 
 	@Override
 	public List<Product> filerBetweenPrice(Double priceMin, Double priceMax) {
@@ -75,11 +75,18 @@ public class ProductServiceImpl implements ProductService {
 	public Product update(Product product) {
 		return pdao.save(product);
 	}
-
+	
 	@Override
-	public void delete(Integer productid) {
-		pdao.deleteById(productid);
+	public Product delete(Product product) {
+		product.setDeletehiden(true);
+		return pdao.save(product);
 	}
+
+//	@Override
+//	public void delete(Integer productid) {
+//		pdao.deleteById(productid);
+//	}
+	
 //	@Override
 //	public List<Product> findCatePage(String cid, int currentPage, String sortField, String sortDir, String keyword) {
 //		return pdao.findCatePage(cid);
@@ -89,9 +96,5 @@ public class ProductServiceImpl implements ProductService {
 	public Product create(Product product) {
 		return pdao.save(product);
 	}
-
-	
-
-	
 
 }

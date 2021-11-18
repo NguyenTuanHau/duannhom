@@ -23,15 +23,17 @@ public interface ProductService {
 	
 //	Page<Product> findAllPage(int currentPage, String cid);
 
-	Page<Product> findAllPage(int currentPage, String sortField, String sortDir, String keyword, String cid);
+//	Page<Product> findAllPage(int currentPage, String sortField, String sortDir, String keyword, String cid);
 
 	List<Product> filerBetweenPrice(Double priceMin, Double priceMax);
 
 	Product create(Product product);
 
 	Product update(Product product);
+	
+	Product delete(Product product);
 
-	void delete(Integer productid);
+//	void delete(Integer productid);
 
 	
 }

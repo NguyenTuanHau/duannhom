@@ -42,6 +42,8 @@
 	crossorigin="anonymous">
 <!--Custom styles-->
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <style>
 /* Made with love by Mutiullah Samim*/
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -324,8 +326,15 @@ input:focus {
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-key"></i></span>
 								</div>
-								<input th:field="*{password}" name=password type="password"
-									class="form-control" placeholder="Mật khẩu">
+								<input th:field="*{password}" name=password type="password" id="password"
+									class="form-control" placeholder="Mật khẩu" autofocus>
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input name="confirmPassword" type="password" class="form-control"
+									placeholder="Nhập lại mật khẩu" oninput="checkPasswordMatch(this);">
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
@@ -359,13 +368,7 @@ input:focus {
 								<input th:field="*{email}" name=email type="email"
 									class="form-control" placeholder="Email">
 							</div>
-							<div class="input-group form-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-random"></i></span>
-								</div>
-								<input name=radom type="text" class="form-control"
-									placeholder="Radom">
-							</div>
+							
 							<div class="form-check">
 								<label class="form-check-label" style="color: white;"> <input
 									type="checkbox" class="form-check-input"> Bằng cách
@@ -407,23 +410,102 @@ input:focus {
 			var name = document.getElementById('name').value;
 			var email = document.getElementById('email').value;
 			var phone = document.getElementById('phone').value;
+			
+			
 
 			// Bước 2: Kiểm tra dữ liệu hợp lệ hay không
 			if (username == '') {
-				alert('Vui lòng nhập Username');
+				//alert('Vui lòng nhập Username');
+					swal({
+					title: 'Vui lòng nhập Username!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
 			} else if (password == '') {
-				alert('Vui lòng nhập Password');
+				//alert('Vui lòng nhập Password');
+					swal({
+					title: 'Vui lòng nhập Password!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
 			} else if (name == '') {
-				alert('Vui lòng nhập tên của bạn');
+				//alert('Vui lòng nhập tên của bạn');
+				
+					swal({
+					title: 'Vui lòng nhập tên của bạn!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
 			} else if (phone == '') {
-				alert('Vui lòng nhập số điện thoại');
+				//alert('Vui lòng nhập số điện thoại');
+				
+					swal({
+					title: 'Vui lòng nhập số điện thoại!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
 			} else if (email == '') {
-				alert('Vui lòng nhập Email');
+				//alert('Vui lòng nhập Email');
+				
+					swal({
+					title: 'Vui lòng nhập Email!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
 			} else {
-				alert('Bạn đã đăng kí thành công!!!');
+				//alert('Bạn đã đăng kí thành công!!!');
+				
+				swal({
+				title: 'Đăng ký thành công!',
+				type: 'success',
+				button: {
+				text: "Continue",
+				value: true,
+				visible: true,
+				className: "btn btn-primary"
+				}
+				})
+				
 				return true;
 			}
 			return false;
+		}
+		function checkPasswordMatch(fieldConfirmPassword) {
+			if (fieldConfirmPassword.value != $("#password")
+					.val()) {
+				fieldConfirmPassword
+						.setCustomValidity("Passwords không trùng khớp!");
+			} else {
+				fieldConfirmPassword.setCustomValidity("");
+			}
 		}
 	</script>
 
@@ -436,8 +518,6 @@ input:focus {
 	<script src="/assets/js/mixitup.min.js"></script>
 	<script src="/assets/js/owl.carousel.min.js"></script>
 	<script src="/assets/js/main.js"></script>
-
-
 
 </body>
 
