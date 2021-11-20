@@ -1,9 +1,10 @@
-app.controller("order-ctrl", function ($scope, $http) {
+app.controller("order-ctrl", function($scope, $http) {
     $scope.items = [];
     $scope.form = {};
+    $scope.details = [];
 
 
-    $scope.initalize = function () {
+    $scope.initalize = function() {
         //load đơn hàng
         $http.get("/rest/orders").then(resp => {
             $scope.items = resp.data;
@@ -11,20 +12,25 @@ app.controller("order-ctrl", function ($scope, $http) {
                 item.createdate = new Date(item.createdate)
             })
         });
+        //load orderdetail
+        $http.get("/rest/orderdetail").then(resp => {
+            $scope.details = resp.data;
+        });
     }
+
     //KHỜI ĐẦU
     $scope.initalize();
 
     //NÚT CHỈNH SỬA
-    $scope.edit = function (item) {
+    $scope.edit = function(item) {
 
         $scope.form = angular.copy(item);
         $(".nav-tabs a:eq(0)").tab('show');
     }
-    
-        //NÚT XÓA
 
-    $scope.delete = function (item) {
+    //NÚT XÓA
+
+    $scope.delete = function(item) {
         $http.delete(`/rest/orders/${item.id}`).then(resp => {
             var index = $scope.items.findIndex(dt => dt.id == item.id);
             $scope.items.splice(index, 1);
@@ -33,6 +39,6 @@ app.controller("order-ctrl", function ($scope, $http) {
             console.log("Error", error);
         })
     }
-    
-    
+
+
 });

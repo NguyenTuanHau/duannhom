@@ -16,25 +16,21 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public List<Blog> findAll() {
-		// TODO Auto-generated method stub
 		return blgDAO.findAll();
 	}
 
 	@Override
-	public Blog findById(Integer blogid) {
-		// TODO Auto-generated method stub
-		return blgDAO.findById(blogid).get();
+	public Blog findById(Integer id) {
+		return blgDAO.findById(id).get();
 	}
 
 	@Override
 	public Blog create(Blog blog) {
-		// TODO Auto-generated method stub
 		return blgDAO.save(blog);
 	}
 
 	@Override
 	public Blog update(Blog blog) {
-		// TODO Auto-generated method stub
 		return blgDAO.save(blog);
 	}
 

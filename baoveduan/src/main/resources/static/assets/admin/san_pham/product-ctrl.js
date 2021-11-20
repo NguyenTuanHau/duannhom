@@ -43,10 +43,34 @@ app.controller("product-ctrl", function($scope, $http) {
                 resp.data.createDate = new Date(resp.data.createDate)
                 $scope.items.push(resp.data);
                 $scope.reset();
-                alert("Thêm sản phẩm thành công!");
+                add_success = function(type) {
+                    'use strict';
+                    if (type === 'success-message') {
+                        swal({
+                            title: 'Thêm mới sản phẩm thành công!',
+                            type: 'success',
+                            button: {
+                                text: "Continue",
+                                value: true,
+                                visible: true,
+                                className: "btn btn-primary"
+                            }
+                        })
+                    } else {
+                        swal("Error occured !");
+                    }
+                }
                 $scope.form.image = resp.data.name;
             }).catch(error => {
-                alert("Lỗi thêm sản phẩm");
+                swal({
+                    title: 'Thêm mới sản phẩm thất bại!',
+                    button: {
+                        text: "Continue",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-primary"
+                    }
+                })
                 console.log("Error", error);
             });
         }
@@ -56,10 +80,34 @@ app.controller("product-ctrl", function($scope, $http) {
         $http.put(`/rest/products/${item.productid}`, item).then(resp => {
             var index = $scope.items.findIndex(p => p.productid == item.productid);
             $scope.items[index] = item;
-            alert("Cập Nhật Sản Phẩm Thành Công!");
+            update_success = function(type) {
+                'use strict';
+                if (type === 'success-message') {
+                    swal({
+                        title: 'Cập nhật thành công!',
+                        type: 'success',
+                        button: {
+                            text: "Continue",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-primary"
+                        }
+                    })
+                } else {
+                    swal("Error occured !");
+                }
+            }
 
         }).catch(error => {
-            alert("Lỗi Cập Nhật Sản Phẩm!");
+            swal({
+                title: 'Cập nhật thất bại!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
             console.log("Error", error);
         });
     }
@@ -75,16 +123,41 @@ app.controller("product-ctrl", function($scope, $http) {
     $scope.deleteConfirm = function() {
             var item = angular.copy($scope.form);
             $http.put(`/rest/products/delete/${item.productid}`, item).then(resp => {
-                var index = $scope.items.findIndex(p => p.id == item.productid);
+                var index = $scope.items.findIndex(p => p.productid == item.productid);
                 $scope.items[index] = item;
-                alert("Xóa thành công");
+
+                dele_success = function(type) {
+                    'use strict';
+                    if (type === 'success-message') {
+                        swal({
+                            title: 'Xóa thành công!',
+                            type: 'success',
+                            button: {
+                                text: "Continue",
+                                value: true,
+                                visible: true,
+                                className: "btn btn-primary"
+                            }
+                        })
+                    } else {
+                        swal("Error occured !");
+                    }
+                }
                 $scope.reset();
                 $scope.initialize();
+
             }).catch(error => {
-                alert("Lỗi xóa sản phẩm");
+                swal({
+                    title: 'Xóa thất bại!',
+                    button: {
+                        text: "Continue",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-primary"
+                    }
+                })
                 console.log("Error", error);
             });
-            $scope.initialize();
         }
         // Upload hình
     $scope.imageChanged = function(files) {
@@ -96,7 +169,15 @@ app.controller("product-ctrl", function($scope, $http) {
         }).then(resp => {
             $scope.form.image = resp.data.name;
         }).catch(error => {
-            alert("Lỗi upload hình ảnh");
+            swal({
+                title: 'Up load hình lỗi!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
             console.log("Error", error);
         })
     }

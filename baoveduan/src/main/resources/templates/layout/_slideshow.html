@@ -7,9 +7,9 @@
                     <div th:each="c:${cates}" class="col-lg-3 "><!-- data-setbg="/assets/img/categories/cat-1.jpg " -->
                         <div class="categories__item set-bg ">
                         	<!-- <img alt="" src="/assets/img/categories/cat-1.jpg"> -->
-                        	<img alt="" th:src="@{|/assets/img/categories/${c.image}|}">
+                        	<img alt="" th:src="@{|/assets/img/categories/${c.image}|}"  style="height: 270px;width: 270;">
                         	
-                            <h5><a th:href="@{|/shop/page?cid=${c.categoryid}|}">[[${c.categoryname}]]</a></h5>
+                            <h5><a th:href="@{|/shop/pagecate?cid=${c.categoryid}|}">[[${c.categoryname}]]</a></h5>
                         </div>
                     </div>
                 </div>

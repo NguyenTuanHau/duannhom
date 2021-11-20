@@ -3,7 +3,7 @@
 	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
 <main>
 	<th:block th:replace="/layout/_header.html"></th:block>
-	<th:block th:replace="/layout/_category.html"></th:block>
+	<br>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="/assets/img/breadcrumb.jpg">
@@ -22,15 +22,15 @@
 	<!-- Blog Section Begin -->
 	<section class="blog-details spad" style="font-family:'FontAwesome';">
 		<div class="row">
-			<div class="col-lg-3 col-md-5 order-md-1 order-2"
+			<div class="col-lg-3 col-md-5 order-md-1 order-2" 
 				style="background-color: #EEEEEE; margin-left: 55px; height: 1015px;">
-				<div class="blog__sidebar__item"
+				<div class="blog__sidebar__item" id="vaokhongsp"
 					style="margin-left: 50px; margin-top: 40px;">
 					<h5 style="color: #FFCC00;">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> CÓ THỂ BẠN
 						QUAN TÂM
 					</h5>
-					<div th:each="bg: ${blog}" class="blog__sidebar__recent">
+					<div th:each="bg: ${blog}" class="blog__sidebar__recent" id="showxuongsp">
 						<a th:href="@{|/blogdetails/${bg.id}|}"
 							class="blog__sidebar__recent__item">
 							<div class="row">

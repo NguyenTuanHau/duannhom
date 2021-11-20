@@ -34,15 +34,15 @@ public class CategoryRestController {
 		return categoryService.save(category);
 	}
 	
-	@PutMapping("{id}")
-	public Category update(@PathVariable("id") String id,
+	@PutMapping("{categoryid}")
+	public Category update(@PathVariable("categoryid") String categoryid,
 			@RequestBody Category category) {
 		return categoryService.update(category);
 	}
 	
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") String id) {
-		categoryService.delete(id);
+	@DeleteMapping("{categoryid}")
+	public void delete(@PathVariable("categoryid") String categoryid) {
+		categoryService.delete(categoryid);
 	}
 	
 }

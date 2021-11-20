@@ -11,7 +11,7 @@ public interface CategoryService {
 
 	Category update(Category category);
 
-	void delete(String id);
+	void delete(String categoryid);
 
 	Category findById(String categoryid);
 }

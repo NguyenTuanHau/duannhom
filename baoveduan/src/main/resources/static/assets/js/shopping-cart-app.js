@@ -1,18 +1,18 @@
 const app = angular.module("shopping-cart-app", []);
 
-app.controller("shopping-cart-ctrl", function ($scope, $http) {
+app.controller("shopping-cart-ctrl", function($scope, $http) {
     // QUẢN LÍ GIỎ HÀNG
     $scope.cart = {
         items: [],
         // Thêm sp vào giỏ hàng
-        add(id) {
-		alert("Thêm vào thành công")
-         var item = this.items.find(item => item.id == id);
+        add(productid) {
+            alert("Thêm vào thành công")
+            var item = this.items.find(item => item.productid == productid);
             if (item) {
                 item.qty++;
                 this.saveToLocalStorage();
             } else {
-                $http.get(`/rest/products/${id}`).then(resp => {
+                $http.get(`/rest/products/${productid}`).then(resp => {
                     resp.data.qty = 1;
                     this.items.push(resp.data);
                     this.saveToLocalStorage();
@@ -21,9 +21,9 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
 
         },
         // Xóa sp khỏi giỏ hàng
-        remove(id) {
-   	 alert(id)
-            var index = this.items.findIndex(item => item.id == id);
+        remove(productid) {
+            alert(productid)
+            var index = this.items.findIndex(item => item.productid == productid);
             this.items.splice(index, 1);
             this.saveToLocalStorage();
         },
@@ -33,7 +33,7 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             this.saveToLocalStorage();
         },
         // Tính thành tiển của 1 sp
-        amt_of(item) { },
+        amt_of(item) {},
         // Tính tổng số lượng các sp trong giỏ
         get count() {
             return this.items
@@ -57,10 +57,10 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             this.items = json ? JSON.parse(json) : [];
         }
     }
-	
+
     $scope.cart.loadFromLocalStorage();
 
-	//Oder
+    //Oder
     $scope.order = {
         createDate: new Date(),
         account: { username: $("#username").text() },
@@ -87,16 +87,16 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             })
         }
     }
-    
+
     $scope.favo = {
-		items: [],
-		add(id) {
-		alert("Sản phẩm đã lưu vào danh sách yêu thích")
-         var item = this.items.find(item => item.id == id);
+        items: [],
+        add(productid) {
+            alert("Sản phẩm đã lưu vào danh sách yêu thích")
+            var item = this.items.find(item => item.productid == productid);
             if (item) {
                 this.saveToLocalStorage();
             } else {
-                $http.get(`/rest/products/${id}`).then(resp => {
+                $http.get(`/rest/products/${productid}`).then(resp => {
                     resp.data.qty = 1;
                     this.items.push(resp.data);
                     this.saveToLocalStorage();
@@ -104,22 +104,22 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             }
 
         },
-        
+
         // Xóa sp khỏi giỏ hàng
-        remove(id) {
-   	 alert(id)
-            var index = this.items.findIndex(item => item.id == id);
+        remove(productid) {
+            alert(productid)
+            var index = this.items.findIndex(item => item.productid == productid);
             this.items.splice(index, 1);
             this.saveToLocalStorage();
         },
-        
+
         // Xóa all sp
         clear() {
             this.items = []
             this.saveToLocalStorage();
         },
         // Tính thành tiển của 1 sp
-        amt_of(item) { },
+        amt_of(item) {},
         // Tính tổng số lượng các sp trong giỏ
         get count() {
             return this.items
@@ -132,7 +132,7 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
                 .map(item => item.qty * item.price)
                 .reduce((total, qty) => total += qty, 0);
         },
-        
+
         // Lưu giỏ hàng vào local storage
         saveToLocalStorage() {
             var json = JSON.stringify(angular.copy(this.items));
@@ -143,7 +143,7 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             var json = localStorage.getItem("favo");
             this.items = json ? JSON.parse(json) : [];
         }
-	}
-	$scope.favo.loadFromLocalStorage();
-    
+    }
+    $scope.favo.loadFromLocalStorage();
+
 })

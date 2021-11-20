@@ -76,39 +76,33 @@
 	</div>
 	<hr> -->
 <div class="row">
-	<div id="filter-order"
-		class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					<i class="fa fa-filter"></i><font style="vertical-align: inherit;"><font
-						style="vertical-align: inherit;"> Lọc</font></font>
-				</h3>
-			</div>
-			<div class="panel-body">
-				<div class="form-group">
-					<label class="control-label" for="input-order-id"><font
+    <div id="filter-order" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-filter"></i>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;"> Lọc</font>
+                    </font>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label" for="input-order-id"><font
 						style="vertical-align: inherit;"><font
-							style="vertical-align: inherit;">Mã sản phẩm</font></font></label> <input
-						type="text" name="filter_order_id" value=""
-						placeholder="Nhập mã sản phẩm" id="input-order-id"
-						class="form-control" ng-model="searchText.productid" />
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="input-customer"><font
+							style="vertical-align: inherit;">Mã sản phẩm</font></font></label> <input type="text" name="filter_order_id" value="" placeholder="Nhập mã sản phẩm" id="input-order-id" class="form-control" ng-model="searchText.productid" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><font
 						style="vertical-align: inherit;"><font
-							style="vertical-align: inherit;">Tên sản phẩm</font></font></label> <input
-						type="text" name="filter_customer" value=""
-						placeholder="Nhập tên sản phẩm" id="input-customer"
-						class="form-control" autocomplete="off" ng-model="searchText.name" />
-					<ul class="dropdown-menu"></ul>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="input-order-status"><font
+							style="vertical-align: inherit;">Tên sản phẩm</font></font></label> <input type="text" name="filter_customer" value="" placeholder="Nhập tên sản phẩm" id="input-customer" class="form-control" autocomplete="off" ng-model="searchText.name"
+                    />
+                    <ul class="dropdown-menu"></ul>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-order-status"><font
 						style="vertical-align: inherit;"><font
-							style="vertical-align: inherit;">Tình trạng sản phẩm</font></font></label> <select
-						name="filter_order_status_id" id="input-order-status"
-						class="form-control">
+							style="vertical-align: inherit;">Tình trạng sản phẩm</font></font></label> <select name="filter_order_status_id" id="input-order-status" class="form-control">
 						<option value=""></option>
 						<option value="0"><font style="vertical-align: inherit;"><font
 								style="vertical-align: inherit;">Còn hàng</font></font></option>
@@ -142,18 +136,16 @@
 						<option value="16"><font style="vertical-align: inherit;"><font
 								style="vertical-align: inherit;">Bỏ phiếu</font></font></option> -->
 					</select>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="input-customer"><font
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><font
 						style="vertical-align: inherit;"><font
-							style="vertical-align: inherit;">Danh mục</font></font></label> <input
-						type="text" name="filter_customer" value=""
-						placeholder="Nhập tên danh mục" id="input-customer"
-						class="form-control" autocomplete="off" ng-model="searchText.category.categoryname" />
-					<ul class="dropdown-menu"></ul>
-				</div>
-				
-			<!-- 	
+							style="vertical-align: inherit;">Danh mục</font></font></label> <input type="text" name="filter_customer" value="" placeholder="Nhập tên danh mục" id="input-customer" class="form-control" autocomplete="off" ng-model="searchText.category.categoryname"
+                    />
+                    <ul class="dropdown-menu"></ul>
+                </div>
+
+                <!-- 	
 				<div class="form-group">
 					<label class="control-label" for="input-total"><font
 						style="vertical-align: inherit;"><font
@@ -163,23 +155,23 @@
 								<option ng-repeat="c in cates" ng-value="c.categoryid">{{c.categoryname}}</option>
 						</select> </font></label>
 				</div> -->
-			
 
 
-				<div class="form-group">
-					<label class="control-label" for="input-customer"><font
+
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><font
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Tìm kiếm theo
-								khoảng giá</font></font></label> <form>
+								khoảng giá</font></font></label>
+                    <form>
 
-								<input name="priceMin" type="number" class=""
-									placeholder="Giá ban đầu"> <input name="priceMax"
-									type="number" class="" placeholder="Giá Kết thúc">
-								<button class="btn btn-primary btn ml-2">Tìm kiếm</button>
+                        <input name="priceMin" type="number" class="" placeholder="Giá ban đầu"> <input name="priceMax" type="number" class="" placeholder="Giá Kết thúc">
+                        <button class="btn btn-primary btn ml-2">Tìm kiếm</button>
 
-							</form></ul>
-				</div>
-				<!-- 				<div class="form-group">
+                    </form>
+                    </ul>
+                </div>
+                <!-- 				<div class="form-group">
 					<label class="control-label" for="input-total"><font
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Danh mục</font></font></label> <input
@@ -188,7 +180,7 @@
 						ng-model="searchText.categoryname" />
 				</div> -->
 
-				<!-- 			<div class="form-group">
+                <!-- 			<div class="form-group">
 					<label class="control-label" for="input-date-added"><font
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Ngày thêm</font></font></label>
@@ -196,7 +188,7 @@
 						<input ng-model="form.createDate" type="date" class="form-control">
 					</div>
 				</div> -->
-				<!-- <div class="form-group">
+                <!-- <div class="form-group">
 					<label class="control-label" for="input-date-modified"><font
 						style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;">Ngày sửa đổi</font></font></label>
@@ -211,56 +203,56 @@
 						</span>
 					</div>
 				</div> -->
-				<!-- <div class="form-group text-right">
+                <!-- <div class="form-group text-right">
 					<button type="button" id="button-filter" class="btn btn-default">
 						<i class="fa fa-filter"></i><font style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;"> Lọc</font></font>
 					</button>
 				</div> -->
-			</div>
-		</div>
-	</div>
-	<div class="col-md-9 col-md-pull-3 col-sm-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					<i class="fa fa-list"></i><font style="vertical-align: inherit;"><font
-						style="vertical-align: inherit;"> Danh sách sản phẩm</font></font>
-				</h3>
-			</div>
-			<div class="col-md-12">
-				<div class="card card-plain">
-					<div class="card-body">
-						<div class="table-responsive">
-							<!-- <form class="form-inline">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-md-pull-3 col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-list"></i>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;"> Danh sách sản phẩm</font>
+                    </font>
+                </h3>
+            </div>
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <!-- <form class="form-inline">
 								<div class="form-group">
 									<label>Search</label> <input type="text" ng-model="searchText"
 										class="form-control" placeholder="tìm kiếm" />
 								</div>
 							</form> -->
-							<table class="table table-hover">
-								<thead>
-									<tr class="bg-primary">
-										<th>Mã</th>
-										<th>Tên sản phẩm</th>
-										<th>Giá</th>
-										<th>Hình ảnh</th>
-										<th>Danh mục</th>
-										<th>Tình trạng?</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr
-										dir-paginate="item in items | orderBy:items | filter:searchText | itemsPerPage: 5 ">
-										<td>{{item.productid}}</td>
-										<td>{{item.name}}</td>
-										<td>{{item.price }}</td>
-										<td><img ng-src="{{'/assets/img/featured/'+ item.image}}"
-											style="width: 100px; height: 100px"></td>
-										<td>{{item.category.categoryname}}</td>
-										<td>{{item.status ?'Còn hàng':'Hết Hàng'}}</td>
-										<!-- 				<td>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary">
+                                        <th>Mã</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Danh mục</th>
+                                        <th>Tình trạng?</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="item in items | orderBy:items | filter:searchText | itemsPerPage: 5 ">
+                                        <td>{{item.productid}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.price }}</td>
+                                        <td><img ng-src="{{'/assets/img/featured/'+ item.image}}" style="width: 100px; height: 100px"></td>
+                                        <td>{{item.category.categoryname}}</td>
+                                        <td>{{item.status ?'Còn hàng':'Hết Hàng'}}</td>
+                                        <!-- 				<td>
 
 					<div class="btn-group btn-group-xs">
 						<button ng-click="edit(item)" class="fas fa-edit"
@@ -269,22 +261,21 @@
 							style="background-color: red;"></button>
 					</div>
 				</td> -->
-										<td>
-											<button ng-click="edit(item)" class="btn btn-success">
+                                        <td>
+                                            <button ng-click="edit(item)" class="btn btn-success">
 												<i class="fas fa-edit"></i>
 											</button>
-											<button ng-click="delete(item)" class="btn btn-danger">
+                                            <button ng-click="delete(item)" class="btn btn-danger" onclick="dele_success('success-message')">
 												<i class="fas fa-recycle"></i>
 											</button>
-										</td>
-									</tr>
-								</tbody>
+                                        </td>
+                                    </tr>
+                                </tbody>
 
-							</table>
-							<dir-pagination-controls max-size="5" direction-links="true"
-								boundary-links="true"> </dir-pagination-controls>
+                            </table>
+                            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"> </dir-pagination-controls>
 
-							<!-- <div class="col-sm-12 col-md-7">
+                            <!-- <div class="col-sm-12 col-md-7">
 								<div class="dataTables_paginate paging_simple_numbers"
 									id="zero_config_paginate">
 									<ul class="pagination">
@@ -297,13 +288,12 @@
 									</ul>
 								</div>
 							</div> -->
-							<dir-pagination-control
-								template-url=" path / to / dirPagination.tpl.html ">
-							</dir-pagination-control>
+                            <dir-pagination-control template-url=" path / to / dirPagination.tpl.html ">
+                            </dir-pagination-control>
 
 
 
-							<!-- <div class="panel-footer text-center">
+                            <!-- <div class="panel-footer text-center">
 								<button ng-click="pager.first()" class="btn btn-danger">
 									<b class="fas fa-angle-left"></b>
 								</button>
@@ -319,9 +309,9 @@
 									<b class="fas fa-angle-right"></b>
 								</button>
 							</div> -->
-						</div>
+                        </div>
 
-						<!-- 	<div class="col-sm-12 col-md-7">
+                        <!-- 	<div class="col-sm-12 col-md-7">
 							<div class="dataTables_paginate paging_simple_numbers"
 								id="zero_config_paginate">
 								<ul class="pagination">
@@ -355,14 +345,14 @@
 							</div>
 						</div>
  -->
-					</div>
-				</div>
-				</ul>
-			</div>
+                    </div>
+                </div>
+                </ul>
+            </div>
 
-		</div>
-	</div>
-	<!-- 		<nav aria-label="Page navigation example">
+        </div>
+    </div>
+    <!-- 		<nav aria-label="Page navigation example">
 	<ul class="pagination justify-content-center">
 		<li class="page-item disabled"><a class="page-link">Previous</a>
 		</li>

@@ -53,6 +53,26 @@
             box-shadow: 0 0 5px 2px #ccc;
             background-color: white;
         }
+        #popup_content_wrap {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.74);
+            z-index: 9999999;
+        }
+
+        #popup_content {
+            width: 50%;
+            height: 650px;
+            padding: 20px;
+            position: relative;
+            top: 8%;
+            left: 25%;
+            background: rgb(255, 255, 255);
+            }
+            
     </style>
 </head>
 
@@ -226,6 +246,19 @@
             $('#layId').val(id);
             $('#xacNhan').submit;
             $('#hopThoaiRate').modal('show');
+        }
+    </script>
+    
+    <!--HÀM CHẠY POPPUP-->
+ <script>
+        function popup_content(hideOrshow) {
+            if (hideOrshow == 'hide') document.getElementById('popup_content_wrap').style.display = "none";
+            else document.getElementById('popup_content_wrap').removeAttribute('style');
+        }
+        window.onload = function () {
+            setTimeout(function () {
+                popup_content('show');
+            }, 100);
         }
     </script>
 

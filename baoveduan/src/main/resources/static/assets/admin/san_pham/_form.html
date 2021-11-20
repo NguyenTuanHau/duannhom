@@ -90,13 +90,13 @@
         </div>
     </div>
     <div class="panel-footer text-center">
-        <button ng-click="create()" class="btn btn-primary">
+        <button ng-click="create()" class="btn btn-primary" onclick="add_success('success-message')">
 			<b class="glyphicon glyphicon-plus"></b>Create
 		</button>
-        <button ng-click="update()" class="btn btn-success">
+        <button ng-click="update()" class="btn btn-success" onclick="update_success('success-message')">
 			<b class="glyphicon glyphicon-save"></b>Update
 		</button>
-        <button ng-click="deleteConfirm()" class="btn btn-danger">
+        <button ng-click="deleteConfirm()" class="btn btn-danger" onclick="dele_success('success-message')">
 			<b class="glyphicon glyphicon-trash"></b>Delete
 		</button>
         <button ng-click="reset()" class="btn btn-info">

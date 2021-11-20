@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta charset="utf-8" />
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+	<li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+
+	<div ng-app="report-app" ng-controller="report-ctrl">
+		<div id="top_x_div" style="width: 800px; height: 600px;"></div>
+		<script type="text/javascript">
+			google.charts.load('current', {
+				'packages' : [ 'bar' ]
+			});
+		      google.charts.setOnLoadCallback(drawStuff);
+
+		      var ready = false;
+	            function drawStuff() {
+	                ready = true;
+	            }  
+		      
+		      
+			function drawChart(items) {
+				var bieudo3 = [
+					 ['Move', 'Percentage'],
+				]
+				bieudo3.push(...items);
+                var data = google.visualization.arrayToDataTable(bieudo3);
+
+                var options = {
+                        width: 800,
+                        legend: { position: 'none' },
+                        chart: {
+                          title: 'Chess opening moves',
+                          subtitle: 'popularity by percentage' },
+                        axes: {
+                          x: {
+                            0: { side: 'top', label: 'White to move'} // Top x-axis.
+                          }
+                        },
+                        bar: { groupWidth: "90%" }
+                      };
+
+                      var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                      // Convert the Classic options to Material options.
+                      chart.draw(data, google.charts.Bar.convertOptions(options));
+                    };
+		</script>
+	</div>
+
+		<script>
+        const app = angular.module("report-app", []);
+        app.controller("report-ctrl", function ($scope, $http) {
+
+            $http.get("/api/thongKe3").then(resp => {
+
+                var items = resp.data.map(item => [`tháng ${item.thang}`, item.tong]);
+                var timer = setInterval(() => {
+                    if (ready) {
+                        drawChart(items);
+                        clearInterval(timer);
+                    }
+                }, 100)
+
+
+
+                drawChart(items)
+
+                console.log(resp.data);
+                // console.log(resp.data.map(item => [item.type, item.count]));
+
+            })
+        });
+    </script> 
+</body>
+
+</html>

@@ -9,7 +9,7 @@
 				</div>
 				<div class="featured__controls ">
 					<ul>
-						<li class="active " data-filter="*">Tất cả</li>	
+						<!-- <li class="active " data-filter="*">Tất cả</li>	 -->
 						<li th:each="c:${cates}" th:data-filter="'.' + ${c.categoryid} ">[[${c.categoryname}]]</li>
 						<!-- <li data-filter=".oranges ">TrÃ¡i cÃ¢y</li>
 						<li data-filter=".fresh-meat ">Thá»‹t</li>

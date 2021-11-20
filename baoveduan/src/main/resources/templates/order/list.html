@@ -28,9 +28,8 @@
 			<div
 				style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
 			<h2 style="text-align: center;">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</h2>
-			<br>
-			<br>
-			<table class="table">
+			<br> <br>
+			<table class="table" id="my-table">
 				<thead>
 					<tr>
 						<th>MÃ£</th>
@@ -51,8 +50,9 @@
 						<td>
 							<button style="background-color: red;">
 								<a th:href="@{|/order/detail/${order.id}|}"
-									class="btn btn-default">
-									 <i class="fa fa-search" aria-hidden="true" style="color: white;"></i></b>
+									class="btn btn-default"> <i class="fa fa-edit"
+									aria-hidden="true" style="color: white;"></i>
+
 								</a>
 							</button>
 
@@ -60,6 +60,9 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="pagination">
+				<ol id="numbers"></ol>
+			</div>
 		</div>
 	</main>
 </body>

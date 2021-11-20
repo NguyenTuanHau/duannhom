@@ -72,12 +72,6 @@ app.controller("account-ctrl", function($scope, $http, $location) {
         $(".nav-tabs a:eq(0)").tab('show')
     }
 
-    $scope.delete = function(acc) {
-        $scope.form = angular.copy(acc);
-        $scope.deleteacc();
-
-    }
-
     // Reset form
     $scope.reset = function() {
         $scope.form = {}
@@ -88,9 +82,35 @@ app.controller("account-ctrl", function($scope, $http, $location) {
         var item = angular.copy($scope.form);
         $http.post(`/rest/accounts`, item).then(resp => {
             $scope.admins.push(resp.data);
+            add_success = function(type) {
+                'use strict';
+                if (type === 'success-message') {
+                    swal({
+                        title: 'Thêm mới tài khoản thành công!',
+                        type: 'success',
+                        button: {
+                            text: "Continue",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-primary"
+                        }
+                    })
+                } else {
+                    swal("Error occured !");
+                }
+            }
             $scope.reset();
-            alert("Thêm mới tài khoản thành công");
+            $scope.initialize();
         }).catch(error => {
+            swal({
+                title: 'Thêm mới thất bại!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
             console.log("Error", error);
         })
     }
@@ -100,25 +120,89 @@ app.controller("account-ctrl", function($scope, $http, $location) {
         $http.put(`/rest/accounts/${item.username}`, item).then(resp => {
             var index = $scope.admins.findIndex(c => c.username == item.username);
             $scope.admins[index] = item;
-            alert("Cập nhật danh mục thành công");
-
+            update_success = function(type) {
+                'use strict';
+                if (type === 'success-message') {
+                    swal({
+                        title: 'Cập nhật thành công!',
+                        type: 'success',
+                        button: {
+                            text: "Continue",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-primary"
+                        }
+                    })
+                } else {
+                    swal("Error occured !");
+                }
+            }
+            $scope.reset();
+            $scope.initialize();
         }).catch(error => {
-            alert("Lỗi cập nhật danh mục");
+            update_success = function(type) {
+                    'use strict';
+                    if (type === 'success-message') {
+                        swal({
+                            title: 'Cập nhật tài khoản thành công!',
+                            type: 'success',
+                            button: {
+                                text: "Continue",
+                                value: true,
+                                visible: true,
+                                className: "btn btn-primary"
+                            }
+                        })
+                    } else {
+                        swal("Error occured !");
+                    }
+                }
+                // alert("Sai rồi");
             console.log("Error", error);
         })
     }
 
     //NÚT XÓA
+    $scope.delete = function(acc) {
+        $scope.form = angular.copy(acc);
+        $scope.deleteacc();
+
+    }
+
     $scope.deleteacc = function() {
         var acc = angular.copy($scope.form);
         $http.put(`/rest/accounts/delete/${acc.username}`, acc).then(resp => {
             var index = $scope.admins.findIndex(c => c.username == acc.username);
             $scope.admins[index] = acc;
-            alert("Xóa tài khoản thành công");
+            dele_success = function(type) {
+                'use strict';
+                if (type === 'success-message') {
+                    swal({
+                        title: 'Xóa thành công!',
+                        type: 'success',
+                        button: {
+                            text: "Continue",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-primary"
+                        }
+                    })
+                } else {
+                    swal("Error occured !");
+                }
+            }
             $scope.reset();
             $scope.initialize();
         }).catch(error => {
-            alert("Xoá thất bại");
+            swal({
+                title: 'Xóa tài khoản thất bại!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
             console.log("Error", error);
         })
         $scope.initialize();

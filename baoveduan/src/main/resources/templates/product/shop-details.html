@@ -167,11 +167,11 @@
 																data-dismiss="modal">Hủy</button>
 
 															<th:block th:unless="${#request.remoteUser}">
-																<a th:href="@{/security/login/form}"
+																<a 	th:href="@{/security/login/form}"
 																	class="btn btn-primary">Vui lòng đăng nhập</a>
 															</th:block>
 
-															<button th:if="${#request.remoteUser}" id="xacNhan"
+															<button th:if="${#request.remoteUser}" id="xacNhan" 
 																type="submit" class="btn btn-primary">Lưu đánh
 																giá</button>
 

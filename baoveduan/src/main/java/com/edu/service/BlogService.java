@@ -8,7 +8,7 @@ import com.edu.entity.Product;
 public interface BlogService {
 	List<Blog> findAll();
 
-	Blog findById(Integer blogid);
+	Blog findById(Integer id);
 
 	Blog save(Blog blog);
 
