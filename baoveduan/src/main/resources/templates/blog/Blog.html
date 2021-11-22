@@ -5,7 +5,7 @@
 	<th:block th:replace="/layout/_header.html"></th:block>
 	
 	<!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="/assets/img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/images/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -27,7 +27,7 @@
                         <div th:each="b: ${blog}" class="col-lg-4 col-md-4 col-sm-4">
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img th:src="@{|/assets/img/blog/${b.image}|}" alt="" 
+                                    <img th:src="@{|/assets/images/${b.image}|}" alt="" 
                                     style="height: 300px;">
                                 </div>
                                 <div class="blog__item__text">

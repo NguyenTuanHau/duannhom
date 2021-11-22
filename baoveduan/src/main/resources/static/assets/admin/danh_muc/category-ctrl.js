@@ -10,8 +10,11 @@ app.controller("category-ctrl", function($scope, $http) {
 
     //NÚT LÀM MỚI
     $scope.reset = function() {
-        $scope.form = {}
+        $scope.form = {
+        	image: 'box.jpg',
+        }
     }
+    $scope.reset();
 
     //NÚT SỬA
     $scope.edit = function(item) {
@@ -105,7 +108,7 @@ app.controller("category-ctrl", function($scope, $http) {
     $scope.imageChanged = function(files) {
         var data = new FormData();
         data.append('file', files[0]);
-        $http.post('/rest/upload/img', data, {
+        $http.post('/rest/upload/images', data, {
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
         }).then(resp => {

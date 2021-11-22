@@ -6,7 +6,7 @@
 	<br>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="/assets/img/breadcrumb.jpg">
+		data-setbg="/assets/images/breadcrumb.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -37,7 +37,7 @@
 
 								<div class="blog__sidebar__recent__item__pic"
 									style="float: left;">
-									<img th:src="@{|/assets/img/blog/${bg.image}|}" alt=""
+									<img th:src="@{|/assets/images/${bg.image}|}" alt=""
 										style="height: 60px; width: 60px;">
 
 
@@ -93,14 +93,14 @@
 							<!--  <h5><a th:utext="${b.title}"></a></h5> -->
 							<p>  <i>[[${b.contents_short}]]</i>  </p>
 							<div class="blog__item__pic">
-								<img th:src="@{|/assets/img/blog/${b.image1}|}" alt=""
+								<img th:src="@{|/assets/images/${b.image1}|}" alt=""
 									style="height: 300px; width: 600px; padding-left: 50px;">
 							</div>
 							
 							<p>[[${b.contents_para1}]]</p>
 							
 							<div class="blog__item__pic">
-								<img th:src="@{|/assets/img/blog/${b.image2}|}" alt=""
+								<img th:src="@{|/assets/images/${b.image2}|}" alt=""
 									style="height: 300px; width: 600px; padding-left: 50px;">
 							</div>
 								
@@ -116,8 +116,7 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
-	</div>
-	</div>
+
 
 
 </main>

@@ -42,7 +42,7 @@
 									</thead>
 									<tbody>
 										<tr ng-repeat="item in cart.items">
-											<td><img src="/assets/img/featured/{{item.image}}" style="height: 50px; height: 50px"></td>
+											<td><img src="/assets/images/{{item.image}}" style="height: 50px; height: 50px"></td>
 											<td>{{item.name}}</td>
 											<td>${{item.price | number : 2}}</td>
 											<td><input ng-change="cart.saveToLocalStorage()"

@@ -77,7 +77,7 @@
                                     <tr dir-paginate="item in items | orderBy:items | filter:searchText | itemsPerPage: 4 ">
                                         <td>{{item.categoryid}}</td>
                                         <td>{{item.categoryname}}</td>
-                                        <td>{{item.image}}</td>
+                                        <td><img ng-src="{{'/assets/images/'+ item.image}}" style="width: 100px; height: 100px"></td>
                                         <td>
                                             <button ng-click="edit(item)" class="btn btn-success text-right">
 												<i class="fas fa-edit"></i>

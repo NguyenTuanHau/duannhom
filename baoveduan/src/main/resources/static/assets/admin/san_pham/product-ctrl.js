@@ -19,6 +19,7 @@ app.controller("product-ctrl", function($scope, $http) {
         }
         // Khởi đầu
     $scope.initialize();
+    
 
     // Xóa form
     $scope.reset = function() {
@@ -31,6 +32,8 @@ app.controller("product-ctrl", function($scope, $http) {
                 status: true,
             }
         }
+        
+        $scope.reset();
         // Show lên form
     $scope.edit = function(item) {
             $scope.form = angular.copy(item);
@@ -163,7 +166,7 @@ app.controller("product-ctrl", function($scope, $http) {
     $scope.imageChanged = function(files) {
         var data = new FormData();
         data.append('file', files[0]);
-        $http.post('/rest/upload/img', data, {
+        $http.post('/rest/upload/images', data, {
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
         }).then(resp => {

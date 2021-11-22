@@ -15,7 +15,7 @@
 		</div>
 		<div style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
 		<hr>
-		<h2 style="text-align: center;">SẢN PHẨM YÊU THÍCH</h2>
+		<h2 style="text-align: center;">Sáº¢N PHáº¨M YÃŠU THÃ�CH</h2>
 		</div>
 		<!-- Breadcrumb Section End -->
 
@@ -30,9 +30,9 @@
 									<thead>
 										<tr>
 											<th>id</th>
-											<th>Hình ảnh</th>
-											<th>Tên SP</th>
-											<th>Giá</th>
+											<th>HÃ¬nh áº£nh</th>
+											<th>TÃªn SP</th>
+											<th>GiÃ¡</th>
 
 											<th></th>
 										</tr>
@@ -41,7 +41,7 @@
 										<tr ng-repeat="item in favo.items" >
 											<td>{{item.productid}}</td>
 											<td>
-												<img ng-src="{{'/assets/img/featured/'+ item.image}}"
+												<img ng-src="{{'/assets/images/'+ item.image}}"
 													style="width: 100px; height: 100px">
 											</td>
 											<td>{{item.name}}</td>
@@ -58,7 +58,7 @@
 
 								<div class="panel-footer">
 									<button ng-click="favo.clear()" class="btn btn-danger">
-										<i class="glyphicon glyphicon-trash"></i>Xóa tất cả
+										<i class="glyphicon glyphicon-trash"></i>XÃ³a táº¥t cáº£
 									</button>
 
 								</div>

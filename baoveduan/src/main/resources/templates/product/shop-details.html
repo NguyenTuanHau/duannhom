@@ -14,17 +14,17 @@
 						<div class="product__details__pic">
 							<div class="product__details__pic__item">
 								<img class="product__details__pic__item--large"
-									th:src="@{|/assets/img/featured/*{image}|}" alt="">
+									th:src="@{|/assets/images/*{image}|}" alt="">
 							</div>
 							<div class="product__details__pic__slider owl-carousel">
-								<img th:data-imgbigurl="@{|/assets/img/featured/*{image}|}"
-									th:src="@{|/assets/img/featured/*{image}|}" alt=""> <img
-									th:data-imgbigurl="@{|/assets/img/featured/*{image1}|}"
-									th:src="@{|/assets/img/featured/*{image1}|}" alt=""> <img
-									th:data-imgbigurl="@{|/assets/img/featured/*{image2}|}"
-									th:src="@{|/assets/img/featured/*{image2}|}" alt=""> <img
-									th:data-imgbigurl="@{|/assets/img/featured/*{image3}|}"
-									th:src="@{|/assets/img/featured/*{image3}|}" alt="">
+								<img th:data-imgbigurl="@{|/assets/images/*{image}|}"
+									th:src="@{|/assets/images/*{image}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/images/*{image1}|}"
+									th:src="@{|/assets/images/*{image1}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/images/*{image2}|}"
+									th:src="@{|/assets/images/*{image2}|}" alt=""> <img
+									th:data-imgbigurl="@{|/assets/images/*{image3}|}"
+									th:src="@{|/assets/images/*{image3}|}" alt="">
 							</div>
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 										<div class="row" th:each="rate:*{rate}" th:object="${rate}">
 											<div class="container mt-3">
 												<div class="media border p-3">
-													<img src="/assets/img/anhdaidien.jpg" alt=""
+													<img src="/assets/images/anhdaidien.jpg" alt=""
 														class="mr-3 mt-3 rounded-circle" style="width: 60px;">
 													<div class="media-body my-date">
 														<h4>
@@ -206,7 +206,7 @@
 							<div class="product-grid ">
 								<div class="product-image ">
 									<img class="pic-1 "
-										th:src="@{|/assets/img/featured/${p.image}|}" alt=""
+										th:src="@{|/assets/images/${p.image}|}" alt=""
 										style="width: 270px; height: 270px;">
 									<ul class="social ">
 										<li><a data-tip="Xem chi tiết"><i
