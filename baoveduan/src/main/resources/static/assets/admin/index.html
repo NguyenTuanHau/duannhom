@@ -28,6 +28,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
 </head>
 
 
@@ -387,20 +389,6 @@
 									class="sidebar-link"><i class="fas fa-comment-dots"></i><span
 										class="hide-menu"> Trò Chuyện </span></a></li>
 							</ul></li>
-						<li class="sidebar-item"><a
-							class="sidebar-link has-arrow waves-effect waves-dark"
-							href="javascript:void(0)" aria-expanded="false"><i
-								class="far fa-user"></i><span class="hide-menu">Tài khoản
-							</span></a>
-							<ul aria-expanded="false" class="collapse first-level">
-								<li class="sidebar-item"><a href="#" class="sidebar-link"><i
-										class="fas fa-sign-in-alt"></i><span class="hide-menu">
-											Đăng nhập </span></a></li>
-								<li class="sidebar-item"><a
-									href="authentication-register.html" class="sidebar-link"><i
-										class="fas fa-address-card"></i><span class="hide-menu">
-											Đăng ký </span></a></li>
-							</ul></li>
 
 						<li class="sidebar-item"><a
 							class="sidebar-link has-arrow waves-effect waves-dark"
@@ -520,6 +508,7 @@
 	<script src="/assets/admin/order/order-ctrl.js"></script>
 	<script src="/assets/admin/tin_tuc/tintuc-ctrl.js"></script>
 	<script src="/assets/admin/tai_khoan/account-ctrl.js"></script>
+	<script src="/assets/admin/bang_dieu_khien/bangdieukhien-ctrl.js"></script>
 
 	<!-- 	<script src="/assets/admin/authority/authority-ctrl.js"></script> -->
 	<script src="/assets/libs/chart/matrix.interface.js"></script>
@@ -529,5 +518,17 @@
 	<script src="/assets/libs/chart/jquery.flot.pie.min.js"></script>
 	<script src="/assets/libs/chart/turning-series.js"></script>
 
- --></body>
+<script>
+
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('Hoa_don.' + (type || 'xlsx')));
+        }
+
+    </script>
+
+</body>
 </html>

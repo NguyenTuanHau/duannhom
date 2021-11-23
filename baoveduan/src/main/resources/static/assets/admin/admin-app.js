@@ -13,7 +13,7 @@ app.config(function($routeProvider) {
         })
         .when("/bangdieukhien", {
             templateUrl: "/assets/admin/bang_dieu_khien/bang_dieukhien.html",
-            controller: "product-ctrl"
+            controller: "bangdieukhien-ctrl"
         })
         .when("/bieudo", {
             templateUrl: "/assets/admin/bieu_do/charts.html",

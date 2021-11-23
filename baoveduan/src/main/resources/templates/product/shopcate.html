@@ -153,9 +153,10 @@
 													th:attr="ng-click=@{|favo.add(${p.productid})|}"><i
 														class="fa fa-heart"></i></a></li>
 
-												<li><a data-tip="Thêm vào giỏ"
-													th:attr="ng-click=@{|cart.add(${p.productid})|}"><i
-														class="fa fa-shopping-cart"></i></a></li>
+												<li>
+														<a data-tip="Hết hàng" th:unless="${p.status}"><i class="fa fa-times" aria-hidden="true"></i></a>
+							<a data-tip="Thêm vào giỏ" th:if="${p.status}" th:attr="ng-click=@{|cart.add(${p.productid})|}"><i class="fa fa-shopping-cart"></i></a>
+												</li>
 											</ul>
 											<span class="product-new-label ">Sale</span> <span
 												class="product-discount-label ">20%</span>

@@ -146,15 +146,15 @@ public class ProductController {
 	@PostMapping("/rating_product")
 	public String saveComment(Model model, Rate rate,
 			HttpServletRequest request) {
-		
+		Integer spid = Integer.parseInt(request.getParameter("layId"));
 		rate.setAccount(new Account(request.getRemoteUser()));
-		rate.setProduct(new Product(Integer.parseInt(request.getParameter("layId"))));
+		rate.setProduct(new Product(spid));
 		rate.setComment(request.getParameter("comment").trim());
 		rate.setStar(Double.parseDouble(request.getParameter("star")));
 		rateService.save(rate);
 		
 //		return "layout/homegiua";
-		return "redirect:/home";
+		return "redirect:/shopdetail/" + spid;
 	}
 	
 }

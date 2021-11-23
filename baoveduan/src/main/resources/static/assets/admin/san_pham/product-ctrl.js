@@ -19,22 +19,22 @@ app.controller("product-ctrl", function($scope, $http) {
         }
         // Khởi đầu
     $scope.initialize();
-    
+
 
     // Xóa form
     $scope.reset = function() {
-            $scope.form = {
-                createDate: new Date(),
-                image: 'box.jpg',
-                image1: 'box.jpg',
-                image2: 'box.jpg',
-                image3: 'box.jpg',
-                status: true,
-            }
+        $scope.form = {
+            createDate: new Date(),
+            image: 'box.jpg',
+            image1: 'box.jpg',
+            image2: 'box.jpg',
+            image3: 'box.jpg',
+            status: true,
         }
-        
-        $scope.reset();
-        // Show lên form
+    }
+
+    $scope.reset();
+    // Show lên form
     $scope.edit = function(item) {
             $scope.form = angular.copy(item);
             $(".nav-tabs a:eq(0)").tab('show')
@@ -63,7 +63,7 @@ app.controller("product-ctrl", function($scope, $http) {
                         swal("Error occured !");
                     }
                 }
-                $scope.form.image = resp.data.name;
+                
             }).catch(error => {
                 swal({
                     title: 'Thêm mới sản phẩm thất bại!',
@@ -171,6 +171,71 @@ app.controller("product-ctrl", function($scope, $http) {
             headers: { 'Content-Type': undefined }
         }).then(resp => {
             $scope.form.image = resp.data.name;
+        }).catch(error => {
+            swal({
+                title: 'Up load hình lỗi!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
+            console.log("Error", error);
+        })
+    }
+    $scope.imageChanged1 = function(files) {
+        var data = new FormData();
+        data.append('file', files[0]);
+        $http.post('/rest/upload/images', data, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(resp => {
+            $scope.form.image1 = resp.data.name;
+        }).catch(error => {
+            swal({
+                title: 'Up load hình lỗi!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
+            console.log("Error", error);
+        })
+    }
+
+    $scope.imageChanged2 = function(files) {
+        var data = new FormData();
+        data.append('file', files[0]);
+        $http.post('/rest/upload/images', data, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(resp => {
+            $scope.form.image2 = resp.data.name;
+        }).catch(error => {
+            swal({
+                title: 'Up load hình lỗi!',
+                button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                }
+            })
+            console.log("Error", error);
+        })
+    }
+
+    $scope.imageChanged3 = function(files) {
+        var data = new FormData();
+        data.append('file', files[0]);
+        $http.post('/rest/upload/images', data, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(resp => {
+            $scope.form.image3 = resp.data.name;
         }).catch(error => {
             swal({
                 title: 'Up load hình lỗi!',
